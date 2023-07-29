@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdminPart", "AdminPart", "{ECB6E36B-9EAE-458D-9946-7AFD4772FC25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VisitorPart", "VisitorPart", "{C9CCD30C-2A69-4890-A06C-A6B35ACD0D1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoosPart", "BoosPart", "{23D795A3-7924-41A2-B39C-6688CEEED069}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuclearPart", "NuclearPart", "{AA7B6C28-FB12-4A12-A3BE-410180B9EEB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "NuclearPart\Entity\Entity.csproj", "{36100D4A-F91D-4CF2-8241-897C751CC0FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36100D4A-F91D-4CF2-8241-897C751CC0FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36100D4A-F91D-4CF2-8241-897C751CC0FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36100D4A-F91D-4CF2-8241-897C751CC0FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36100D4A-F91D-4CF2-8241-897C751CC0FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCB80E95-1F92-41EA-99F7-26F3BA886114}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36100D4A-F91D-4CF2-8241-897C751CC0FD} = {AA7B6C28-FB12-4A12-A3BE-410180B9EEB7}
+	EndGlobalSection
+EndGlobal
