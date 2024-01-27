@@ -1,14 +1,3 @@
-NuclearPart/Entity/obj/Entity.csproj.nuget.dgspec.json
-NuclearPart/Entity/obj/Entity.csproj.nuget.g.props
-NuclearPart/Entity/obj/Entity.csproj.nuget.g.targets
-NuclearPart/Entity/obj/project.assets.json
-NuclearPart/Entity/obj/project.nuget.cache
-NuclearPart/Entity/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs
-NuclearPart/Entity/obj/Debug/net7.0/Entity.AssemblyInfo.cs
-NuclearPart/Entity/obj/Debug/net7.0/Entity.AssemblyInfoInputs.cache
-NuclearPart/Entity/obj/Debug/net7.0/Entity.assets.cache
-NuclearPart/Entity/obj/Debug/net7.0/Entity.csproj.AssemblyReference.cache
-NuclearPart/Entity/obj/Debug/net7.0/Entity.GeneratedMSBuildEditorConfig.editorconfig
-NuclearPart/Entity/obj/Debug/net7.0/Entity.GlobalUsings.g.cs
 .DS_Store
 .vs
+/NuclearPart/Entity/obj
