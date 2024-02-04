@@ -9,6 +9,8 @@ namespace Entity
         {
             modelBuilder.Entity<Manger>().HasMany(u => u.Site).WithOne(u => u.Created).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Manger>().HasMany(u => u.Site1).WithOne(u => u.Modified).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Manger>().HasMany(u => u.Site2).WithOne(u => u.Deactivate).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Manger>().HasMany(u => u.MangerRefreshToken).WithOne(u => u.Manger).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
