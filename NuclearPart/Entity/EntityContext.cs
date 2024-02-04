@@ -24,6 +24,7 @@ namespace Entity
 
         #region MangerSection
         public DbSet<Manger> Mangers { get; set; } = default!;
+        public DbSet<MangerRefreshToken> MangerRefreshTokens { get; set; } = default!;
         #endregion
 
         #region SiteSection

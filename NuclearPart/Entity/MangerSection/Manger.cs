@@ -13,6 +13,10 @@ namespace Entity.MangerSection
             #region SiteSection
             Site = new HashSet<Site>();
             Site1 = new HashSet<Site>();
+            Site2 = new HashSet<Site>();
+            #endregion
+            #region MangerSection
+            MangerRefreshToken = new HashSet<MangerRefreshToken>();
             #endregion
         }
 
@@ -28,6 +32,11 @@ namespace Entity.MangerSection
         #region SiteSection
         public virtual ICollection<Site> Site { get; set; }
         public virtual ICollection<Site> Site1 { get; set; }
+        public virtual ICollection<Site> Site2 { get; set; }
+        #endregion
+
+        #region MangerSection
+        public virtual ICollection<MangerRefreshToken> MangerRefreshToken { get; set; }
         #endregion
     }
 }

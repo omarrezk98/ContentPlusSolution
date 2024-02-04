@@ -1,3 +1,7 @@
 .DS_Store
 .vs
 /NuclearPart/Entity/obj
+/Core/obj
+/MangerModel/obj
+/MangerService/obj
+/MongoDiagnosis/obj

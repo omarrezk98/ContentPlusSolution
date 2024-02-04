@@ -20,9 +20,5 @@ namespace Entity.SiteSection
         public string ContactName { get; set; } = default!;
         public string Mobile { get; set; } = default!;
         public bool IsActive { get; set; }
-        public string? DeactivateId { get; set; }
-        public DateTime? DeactivateDate { get; set; }
-             
-       
     }
 }
