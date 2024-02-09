@@ -11,6 +11,7 @@ namespace MangerServer.Middlewares
         {
             #region MangerSection
             CreateMap<MangerRefreshToken, MangerRefreshTokenViewModel>().ReverseMap();
+            CreateMap<Manger, MangerViewModel>().ReverseMap();
             #endregion
         }
     }

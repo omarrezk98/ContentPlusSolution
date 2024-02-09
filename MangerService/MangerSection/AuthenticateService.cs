@@ -1,4 +1,5 @@
-﻿using Core.Helper;
+﻿using AutoMapper;
+using Core.Helper;
 using Core.Security;
 using Entity.MangerSection;
 using MangerModel.MangerSection;
@@ -62,16 +63,49 @@ namespace MangerService.MangerSection
             return isAuthenticatedModel;
         }
 
-        public Task<IsAuthenticatedModel> IsAuthenticated(Manger user)
+        public async Task<IsAuthenticatedModel> IsAuthenticated(Manger user)
         {
-            throw new NotImplementedException();
+            var isAuthenticatedModel = new IsAuthenticatedModel();
+
+            var accessTokenExpiration = DateTime.UtcNow.AddDays(tokenManagement.AccessExpiration);
+           
+
+            var claim = new[]
+            {
+    new Claim(ClaimTypes.NameIdentifier, user.Id),
+};
+            if (tokenManagement.Secret == null) return isAuthenticatedModel;
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenManagement.Secret));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var jwtToken = new JwtSecurityToken(
+                tokenManagement.Issuer,
+                tokenManagement.Audience,
+                claim,
+                expires: DateTime.UtcNow.AddDays(tokenManagement.AccessExpiration),
+                signingCredentials: credentials
+            );
+
+            var refresh = BuildRefreshToken(user.Id);
+            int check = await mangerService.SaveRefreshToken(refresh);
+            if (check < 0) return isAuthenticatedModel;
+
+            isAuthenticatedModel.IsAuthenticated = true;
+            isAuthenticatedModel.AccessToken = new AccessToken()
+            {
+                Token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
+                Expiration = accessTokenExpiration,
+                Refresh = refresh,
+            };
+            return isAuthenticatedModel;
         }
 
         private MangerRefreshTokenViewModel BuildRefreshToken(string userId)
         {
             return new MangerRefreshTokenViewModel
             {
-                ManagerId = userId,
+                MangerId = userId,
                 Token = IdentityHelper.HashPassword(Guid.NewGuid().ToString()),
                 ExpiresUtc = DateTime.UtcNow.AddDays(tokenManagement.RefreshExpiration),
                 IssuedUtc = DateTime.UtcNow,

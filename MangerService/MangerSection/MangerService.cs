@@ -57,7 +57,7 @@ namespace MangerService.MangerSection
         public async Task<MangerRefreshToken?> GetRefreshToken(string token)
         {
             if (string.IsNullOrWhiteSpace(token)) return null;
-            var refreshToken = await db.MangerRefreshTokens.Include(x => x.Manger).SingleOrDefaultAsync(t => t.Token == token);
+            var refreshToken = await db.MangerRefreshTokens.Include(x => x.Manger).SingleOrDefaultAsync(t => t.Id == token);
             if (refreshToken != null)
             {
                 db.MangerRefreshTokens.Remove(refreshToken);
@@ -69,7 +69,7 @@ namespace MangerService.MangerSection
         public async Task<int> RemoveRefreshToken(string? token)
         {
             if (string.IsNullOrWhiteSpace(token)) return 0;
-            var refreshDbToken = await db.MangerRefreshTokens.SingleOrDefaultAsync(t => t.Token == token);
+            var refreshDbToken = await db.MangerRefreshTokens.SingleOrDefaultAsync(t => t.Id == token);
             if (refreshDbToken != null) db.MangerRefreshTokens.Remove(refreshDbToken);
             return await db.SaveChangesAsync();
         }
