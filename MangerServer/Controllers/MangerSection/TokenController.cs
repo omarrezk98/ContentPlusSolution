@@ -1,9 +1,8 @@
 ﻿using Core.Security;
 using MangerService.MangerSection;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MangerServer.Controllers
+namespace MangerServer.Controllers.MangerSection
 {
     [Route("")]
     [ApiController]
@@ -22,7 +21,7 @@ namespace MangerServer.Controllers
             {
                 return Ok(model.AccessToken);
             }
-                return BadRequest("Login.LoginError");
+            return BadRequest("Login.LoginError");
         }
 
         [HttpPost]

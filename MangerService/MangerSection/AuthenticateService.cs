@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Core.Helper;
+﻿using Core.Helper;
 using Core.Security;
 using Entity.MangerSection;
 using MangerModel.MangerSection;
@@ -15,6 +14,7 @@ namespace MangerService.MangerSection
     {
         Task<IsAuthenticatedModel> IsAuthenticated(TokenRequest request);
         Task<IsAuthenticatedModel> IsAuthenticated(Manger user);
+
     }
     public class AuthenticateService(IMangerService mangerService, IOptions<TokenManagement> tokenManagement) : IAuthenticateService
     {
@@ -68,12 +68,12 @@ namespace MangerService.MangerSection
             var isAuthenticatedModel = new IsAuthenticatedModel();
 
             var accessTokenExpiration = DateTime.UtcNow.AddDays(tokenManagement.AccessExpiration);
-           
+
 
             var claim = new[]
             {
-    new Claim(ClaimTypes.NameIdentifier, user.Id),
-};
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+            };
             if (tokenManagement.Secret == null) return isAuthenticatedModel;
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenManagement.Secret));
