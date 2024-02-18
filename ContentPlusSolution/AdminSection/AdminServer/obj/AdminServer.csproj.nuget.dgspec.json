@@ -1,0 +1,257 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminServer\\AdminServer.csproj": {}
+  },
+  "projects": {
+    "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj",
+        "projectName": "AdminModel",
+        "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj",
+        "packagesPath": "C:\\Users\\asmaa\\.nuget\\packages\\",
+        "outputPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\asmaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminServer\\AdminServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminServer\\AdminServer.csproj",
+        "projectName": "AdminServer",
+        "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminServer\\AdminServer.csproj",
+        "packagesPath": "C:\\Users\\asmaa\\.nuget\\packages\\",
+        "outputPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\asmaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminService\\AdminService.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminService\\AdminService.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\Core\\Core.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\Core\\Core.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\MongoDiagnosis\\MongoDiagnosis.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\MongoDiagnosis\\MongoDiagnosis.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\NuclearPart\\Entity\\Entity.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\NuclearPart\\Entity\\Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.6.13, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.8, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminService\\AdminService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminService\\AdminService.csproj",
+        "projectName": "AdminService",
+        "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminService\\AdminService.csproj",
+        "packagesPath": "C:\\Users\\asmaa\\.nuget\\packages\\",
+        "outputPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\asmaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\AdminModel\\AdminModel.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\Core\\Core.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\Core\\Core.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\MongoDiagnosis\\MongoDiagnosis.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\MongoDiagnosis\\MongoDiagnosis.csproj"
+              },
+              "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\NuclearPart\\Entity\\Entity.csproj": {
+                "projectPath": "E:\\octoHub\\ContentPlusSolution\\ContentPlusSolution\\AdminSection\\NuclearPart\\Entity\\Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "AutoMapper.Collection": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

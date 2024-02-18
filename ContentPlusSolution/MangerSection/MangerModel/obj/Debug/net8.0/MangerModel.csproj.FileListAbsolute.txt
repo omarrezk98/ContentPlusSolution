@@ -1,0 +1,12 @@
+E:\octoHub\ContentPlusSolution\MangerModel\bin\Debug\net8.0\MangerModel.deps.json
+E:\octoHub\ContentPlusSolution\MangerModel\bin\Debug\net8.0\MangerModel.dll
+E:\octoHub\ContentPlusSolution\MangerModel\bin\Debug\net8.0\MangerModel.pdb
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.AssemblyInfoInputs.cache
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.AssemblyInfo.cs
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.csproj.CoreCompileInputs.cache
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.sourcelink.json
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.dll
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\refint\MangerModel.dll
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\MangerModel.pdb
+E:\octoHub\ContentPlusSolution\MangerModel\obj\Debug\net8.0\ref\MangerModel.dll
