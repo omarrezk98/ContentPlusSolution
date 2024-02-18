@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\NuclearPart\Core\Core.csproj" />
+    <ProjectReference Include="..\..\NuclearPart\Entity\Entity.csproj" />
+    <ProjectReference Include="..\..\NuclearPart\MongoDiagnosis\MongoDiagnosis.csproj" />
     <ProjectReference Include="..\MangerModel\MangerModel.csproj" />
   </ItemGroup>
 
