@@ -1,4 +1,6 @@
-﻿using Entity.MangerSection;
+﻿using Entity._ModelRelation.AdminSectionRelation;
+using Entity.AdminSection;
+using Entity.MangerSection;
 using Entity.SiteSection;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +22,7 @@ namespace Entity
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             MangerSectionRelation.Apply(modelBuilder);
+            AdminSectionRelation.Apply(modelBuilder);
         }
 
         #region MangerSection
@@ -29,6 +32,11 @@ namespace Entity
 
         #region SiteSection
         public DbSet<Site> Sites { get; set; } = default!;
+        #endregion
+
+        #region AdminSection
+        public DbSet<Admin> Admins { get; set; } = default!;
+        public DbSet<AdminRefreshToken> AdminRefreshTokens { get; set; } = default!;
         #endregion
 
     }

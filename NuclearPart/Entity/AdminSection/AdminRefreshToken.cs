@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Entity.MangerSection
+namespace Entity.AdminSection
 {
-    public class MangerRefreshToken
+    public class AdminRefreshToken
     {
-        public MangerRefreshToken()
+        public AdminRefreshToken()
         {
             Id = Guid.NewGuid().ToString();
         }
+
         [Key]
         [StringLength(450)]
         public string Id { get; set; }
@@ -18,8 +19,8 @@ namespace Entity.MangerSection
         [StringLength(450)]
         public string Token { get; set; } = default!;
         [StringLength(450)]
-        public string MangerId { get; set; } = default!;
-        [ForeignKey("MangerId")]
-        public virtual Manger Manger { get; set; } = default!;
+        public string AdminId { get; set; } = default!;
+        [ForeignKey("AdminId")]
+        public virtual Admin Admin { get; set; } = default!;
     }
 }

@@ -5,3 +5,17 @@
 /MangerModel/obj
 /MangerService/obj
 /MongoDiagnosis/obj
+/Core/bin
+/MangerServer/bin
+/MangerModel/bin
+/MangerServer/contentRoot/nlog
+/MangerServer/obj
+/MangerService/bin
+/MongoDiagnosis/bin
+/NuclearPart/Entity/bin
+/AdminModel/bin/Debug/net8.0
+/AdminModel/obj
+/AdminServer/bin/Debug/net8.0
+/AdminServer/obj
+/AdminService/bin/Debug/net8.0
+/AdminService/obj
