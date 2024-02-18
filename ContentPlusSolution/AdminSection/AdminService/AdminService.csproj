@@ -14,9 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AdminModel\AdminModel.csproj" />
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\MongoDiagnosis\MongoDiagnosis.csproj" />
-    <ProjectReference Include="..\NuclearPart\Entity\Entity.csproj" />
   </ItemGroup>
 
 </Project>

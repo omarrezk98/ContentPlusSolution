@@ -22,11 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\MangerModel\MangerModel.csproj" />
     <ProjectReference Include="..\MangerService\MangerService.csproj" />
-    <ProjectReference Include="..\MongoDiagnosis\MongoDiagnosis.csproj" />
-    <ProjectReference Include="..\NuclearPart\Entity\Entity.csproj" />
   </ItemGroup>
 
   <ItemGroup>
