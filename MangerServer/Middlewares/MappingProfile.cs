@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using Entity.MangerSection;
 using MangerModel.MangerSection;
 

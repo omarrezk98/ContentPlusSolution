@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangerModel", "MangerModel\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDiagnosis", "MongoDiagnosis\MongoDiagnosis.csproj", "{81EBBC32-2521-4E92-A7B9-D292B11A2DBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangerServer", "MangerServer\MangerServer.csproj", "{A26F4BFF-E05D-4399-8428-380D5B92E5AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{81EBBC32-2521-4E92-A7B9-D292B11A2DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81EBBC32-2521-4E92-A7B9-D292B11A2DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81EBBC32-2521-4E92-A7B9-D292B11A2DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A26F4BFF-E05D-4399-8428-380D5B92E5AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A26F4BFF-E05D-4399-8428-380D5B92E5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A26F4BFF-E05D-4399-8428-380D5B92E5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A26F4BFF-E05D-4399-8428-380D5B92E5AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{2A0B2B23-8779-4DA2-B0E7-5B665385C8FE} = {AA7B6C28-FB12-4A12-A3BE-410180B9EEB7}
 		{84367A90-1C4F-4B4D-8415-4D3B49067D0D} = {92AFC7B6-D4EE-47DC-B016-426C29845380}
 		{81EBBC32-2521-4E92-A7B9-D292B11A2DBC} = {AA7B6C28-FB12-4A12-A3BE-410180B9EEB7}
+		{A26F4BFF-E05D-4399-8428-380D5B92E5AD} = {92AFC7B6-D4EE-47DC-B016-426C29845380}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FCB80E95-1F92-41EA-99F7-26F3BA886114}

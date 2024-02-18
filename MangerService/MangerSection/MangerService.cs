@@ -17,6 +17,7 @@ namespace MangerService.MangerSection
         Task<int> SaveRefreshToken(MangerRefreshTokenViewModel refresh);
         Task<MangerRefreshToken?> GetRefreshToken(string token);
         Task<int> RemoveRefreshToken(string? token);
+        Task<bool> ChangePassword(ChangePassword model, string userId);
     }
     public class MangerService : BaseService, IMangerService
     {
@@ -57,7 +58,7 @@ namespace MangerService.MangerSection
         public async Task<MangerRefreshToken?> GetRefreshToken(string token)
         {
             if (string.IsNullOrWhiteSpace(token)) return null;
-            var refreshToken = await db.MangerRefreshTokens.Include(x => x.Manger).SingleOrDefaultAsync(t => t.Token == token);
+            var refreshToken = await db.MangerRefreshTokens.Include(x => x.Manger).SingleOrDefaultAsync(t => t.Id == token);
             if (refreshToken != null)
             {
                 db.MangerRefreshTokens.Remove(refreshToken);
@@ -69,10 +70,33 @@ namespace MangerService.MangerSection
         public async Task<int> RemoveRefreshToken(string? token)
         {
             if (string.IsNullOrWhiteSpace(token)) return 0;
-            var refreshDbToken = await db.MangerRefreshTokens.SingleOrDefaultAsync(t => t.Token == token);
+            var refreshDbToken = await db.MangerRefreshTokens.SingleOrDefaultAsync(t => t.Id == token);
             if (refreshDbToken != null) db.MangerRefreshTokens.Remove(refreshDbToken);
             return await db.SaveChangesAsync();
         }
 
+        public async Task<bool> ChangePassword(ChangePassword model, string userId)
+        {
+            try
+            {
+                Manger? user = await db.Mangers.Where(s => s.Id == userId).FirstOrDefaultAsync();
+                if (user == null) return false;
+                if (IdentityHelper.VerifyHashedPassword(user.PasswordHash, model.OldPassword))
+                {
+                    user.PasswordHash = IdentityHelper.HashPassword(model.NewPassword);
+                    var loginList = db.MangerRefreshTokens.Where(s => s.Id == userId).ToList();
+                    db.MangerRefreshTokens.RemoveRange(loginList);
+
+                    await db.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                await LogError(ex, "Manger/ChangePassword", userId);
+                return false;
+            }
+        }
     }
 }

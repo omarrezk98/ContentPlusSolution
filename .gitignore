@@ -13,6 +13,14 @@
 /MangerService/bin
 /MongoDiagnosis/bin
 /NuclearPart/Entity/bin
+/Core/bin
+/MangerServer/bin
+/MangerModel/bin
+/MangerServer/contentRoot/nlog
+/MangerServer/obj
+/MangerService/bin
+/MongoDiagnosis/bin
+/NuclearPart/Entity/bin
 /AdminModel/bin/Debug/net8.0
 /AdminModel/obj
 /AdminServer/bin/Debug/net8.0

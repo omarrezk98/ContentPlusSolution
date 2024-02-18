@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdminModel\AdminModel.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\MangerModel\MangerModel.csproj" />
     <ProjectReference Include="..\MangerService\MangerService.csproj" />
