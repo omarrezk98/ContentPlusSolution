@@ -37,6 +37,7 @@ namespace AdminService.AdminSection
             var claim = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.UserId),
+                new Claim("SiteId", user.SiteId.ToString()),
             };
             if (tokenManagement.Secret == null) return isAuthenticatedModel;
 

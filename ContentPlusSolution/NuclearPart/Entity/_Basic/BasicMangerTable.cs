@@ -9,14 +9,10 @@ namespace Entity
         public DateTime CreatedDate { get; set; }
         public string? ModifiedId { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public string DeactivateId { get; set; } = default!;
-        public DateTime? DeactivateDate { get; set; }
 
         [ForeignKey("CreatedId")]
         public virtual Manger Created { get; set; } = default!;
         [ForeignKey("ModifiedId")]
         public virtual Manger? Modified { get; set; }
-        [ForeignKey("DeactivateId")]
-        public virtual Manger Deactivate { get; set; } = default!;
     }
 }

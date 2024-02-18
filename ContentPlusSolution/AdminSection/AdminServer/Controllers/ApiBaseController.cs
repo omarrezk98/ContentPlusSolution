@@ -16,5 +16,13 @@ namespace AdminServer.Controllers
             if (!string.IsNullOrEmpty(m)) return m;
             throw new Exception("Error In Read AdminId From Token");
         }
+
+        public int SiteId { get { return GetSiteId(); } }
+        private int GetSiteId()
+        {
+            bool check = int.TryParse(User.FindFirst("SiteId")?.Value, out int b);
+            if (check) return b;
+            throw new Exception("Error In Read SiteId From Token");
+        }       
     }
 }

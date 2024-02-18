@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Entity.AdminSection;
+using Entity.MangerSection;
 
 namespace Entity.SiteSection
 {
@@ -25,7 +26,11 @@ namespace Entity.SiteSection
         public string ContactName { get; set; } = default!;
         public string Mobile { get; set; } = default!;
         public bool IsActive { get; set; }
+        public string? DeactivateId { get; set; }
+        public DateTime? DeactivateDate { get; set; }
 
+        [ForeignKey("DeactivateId")]
+        public virtual Manger Deactivate { get; set; } = default!;
         public virtual ICollection<Admin> Admin { get; set; }
     }
 }

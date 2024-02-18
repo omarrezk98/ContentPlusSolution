@@ -52,6 +52,7 @@ namespace AdminService.AdminSection
                     validUser.IsValidUser = true;
                     validUser.UserId = user.Id;
                     validUser.User = Mapper.Map<AdminViewModel>(user);
+                    validUser.SiteId = user.SiteId;
                 }
                 return validUser;
             }
