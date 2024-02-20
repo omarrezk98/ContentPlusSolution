@@ -7,7 +7,6 @@
 @import "base/functions";
 @import "base/mixins";
 @import "components/mixins";
-@import "vendors/plugins/mixins";
 
 // Custom variables
 @import "components/variables.custom";
@@ -21,10 +20,6 @@
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
-
-// 3rd-Party plugins variables
-@import "vendors/plugins/variables";
-@import "vendors/plugins/variables-dark";
 
 // Custom layout variables
 @import "layout/variables";
