@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AccountRoutingModule } from './account-routing.module';
 import { AccountComponent } from './account.component';
 import { LoginComponent } from './login/login.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    CoreModule.forRoot()
   ]
 })
 export class AccountModule { }

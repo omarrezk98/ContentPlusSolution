@@ -1,0 +1,16 @@
+{
+  "Message": {
+    "Successful": "Successful operation",
+    "InProgress": "In progress",
+    "Warning": "Warning message",
+    "Unsuccessful": "Unsuccessful operation",
+    "SuccessfulText": "Operation completed successfully",
+    "InProgressText": "Please wait ... Your request is being processed",
+    "WarningText": "Event may cause a problem",
+    "UnsuccessfulText": "There was a problem, please try again",
+    "OperationError": "Oops: There are no valid data"
+  },
+  "Account": {
+    "SignIn": "Sign In"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "Message": {
+    "Successful": "عملية ناجحة",
+    "InProgress": "قيد التنفيذ",
+    "Warning": "رسالة تحذيرية",
+    "Unsuccessful": "عملية غير ناجحة",
+    "SuccessfulText": "تمت العملية بنجاح",
+    "InProgressText": "برجاء الانتظار ... جاري تنفيذ طلبك",
+    "WarningText": "قد يتسبب الحدث بمشكلة ما",
+    "UnsuccessfulText": "حدثت مشكلة , برجاء اعادة المحاولة",
+    "OperationError": "عفواً : لا توجد بيانات صحيحة"
+  },
+  "Account": {
+    "SignIn" : "تسجيل الدخول"
+  }
+}

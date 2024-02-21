@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, TRANSLATIONS } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FullLayoutComponent } from './theme/full-layout/full-layout.component';
 import { SimpleLayoutComponent } from './theme/simple-layout/simple-layout.component';
@@ -9,6 +9,10 @@ import { ScrolltopComponent } from './theme/scrolltop/scrolltop.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FixedService } from './utils/fixed.service';
+import { TranslateModule } from '@ngx-translate/core';
+
+const fixed = new FixedService();
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    TranslateModule,
   ],
   exports: [
     RouterModule,
@@ -33,7 +38,9 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     FullLayoutComponent,
     SimpleLayoutComponent,
+    TranslateModule,
   ],
+  providers: [{ provide: FixedService, useValue: fixed }],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {
