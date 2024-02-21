@@ -11,7 +11,7 @@ import { CoreModule } from '../core/core.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CoreModule.forRoot()
+    //CoreModule.forRoot()
   ]
 })
 export class HomeModule { }
