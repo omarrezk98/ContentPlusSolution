@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class FixedService {
   public activeLang: any = {};
   public appLanguages: any = [];
+  public deleteSwalConfig: any = {};
 
   constructor() {
     this.initialAppLang();
