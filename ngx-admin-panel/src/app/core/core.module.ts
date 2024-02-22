@@ -15,31 +15,9 @@ import { TranslateModule } from '@ngx-translate/core';
 const fixed = new FixedService();
 
 @NgModule({
-  declarations: [
-    FullLayoutComponent,
-    SimpleLayoutComponent,
-    HeaderComponent,
-    FooterComponent,
-    AsideComponent,
-    ScrolltopComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    TranslateModule,
-  ],
-  exports: [
-    RouterModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FullLayoutComponent,
-    SimpleLayoutComponent,
-    TranslateModule,
-  ],
+  declarations: [FullLayoutComponent, SimpleLayoutComponent, HeaderComponent, FooterComponent, AsideComponent, ScrolltopComponent],
+  imports: [CommonModule, RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, TranslateModule],
+  exports: [RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, FullLayoutComponent, SimpleLayoutComponent, TranslateModule],
   providers: [{ provide: FixedService, useValue: fixed }],
 })
 export class CoreModule {

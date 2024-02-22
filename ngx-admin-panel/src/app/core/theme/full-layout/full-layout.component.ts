@@ -21,15 +21,15 @@ export class FullLayoutComponent implements AfterViewInit {
     if (!this.jsLoaded) {
       this.jsLoaded = true;
       KTUtil.init();
-       KTDrawer.init();
-       KTMenu.init();
-       KTScroll.init();
-       KTSticky.init();
-       KTSwapper.init();
-       KTToggle.init();
-       KTScrolltop.init();
-       KTDialer.init();
-       KTThemeMode.init();
+      KTDrawer.init();
+      KTMenu.init();
+      KTScroll.init();
+      KTSticky.init();
+      KTSwapper.init();
+      KTToggle.init();
+      KTScrolltop.init();
+      KTDialer.init();
+      KTThemeMode.init();
     }
   }
 }

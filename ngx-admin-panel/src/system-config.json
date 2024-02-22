@@ -1,0 +1,6 @@
+{
+  "production": false,
+  "version": "0.0.0",
+  "domain": "localhost:44374",
+  "serverUrl": "https://localhost:44374/"
+}

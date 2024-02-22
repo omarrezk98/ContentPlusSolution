@@ -46,32 +46,28 @@ export class GlobalService {
       body.classList.remove('rtl');
     }
     this.titleSer.setTitle(appLang.title);
-    this.storage
-      .set(CookieEnum.AppLang, this.fixed.activeLang)
-      .subscribe(() => {});
+    this.storage.set(CookieEnum.AppLang, this.fixed.activeLang).subscribe(() => {});
     this.setLang(this.fixed.activeLang.code);
     this.appLangChanged.next(this.fixed.activeLang);
     this.generateSwalConfig();
   }
 
   generateSwalConfig() {
-    forkJoin([
-      this.translate.get('Common.DeleteConfirmMessage'),
-      this.translate.get('Common.Confirm'),
-      this.translate.get('Common.Cancel'),
-    ]).subscribe((results) => {
-      this.fixed.deleteSwalConfig = {
-        icon: 'error',
-        title: results[0],
-        confirmButtonText: results[1],
-        cancelButtonText: results[2],
-        confirmButtonColor: '#d33',
-        focusCancel: true,
-        focusConfirm: false,
-        showCloseButton: false,
-        showCancelButton: true,
-        showConfirmButton: true,
-      };
-    });
+    forkJoin([this.translate.get('Common.DeleteConfirmMessage'), this.translate.get('Common.Confirm'), this.translate.get('Common.Cancel')]).subscribe(
+      results => {
+        this.fixed.deleteSwalConfig = {
+          icon: 'error',
+          title: results[0],
+          confirmButtonText: results[1],
+          cancelButtonText: results[2],
+          confirmButtonColor: '#d33',
+          focusCancel: true,
+          focusConfirm: false,
+          showCloseButton: false,
+          showCancelButton: true,
+          showConfirmButton: true,
+        };
+      }
+    );
   }
 }

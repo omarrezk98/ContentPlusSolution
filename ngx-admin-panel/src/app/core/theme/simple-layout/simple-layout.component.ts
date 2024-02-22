@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'app-simple-layout',
   templateUrl: './simple-layout.component.html',
 })
-export class SimpleLayoutComponent {
-
-}
+export class SimpleLayoutComponent {}

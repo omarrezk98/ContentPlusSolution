@@ -7,5 +7,8 @@ import { FixedService } from '../core/utils/fixed.service';
   templateUrl: './account.component.html',
 })
 export class AccountComponent {
-  constructor(public global: GlobalService, public fixed: FixedService) {}
+  constructor(
+    public global: GlobalService,
+    public fixed: FixedService
+  ) {}
 }

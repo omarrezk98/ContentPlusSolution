@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'app-scrolltop',
   templateUrl: './scrolltop.component.html',
 })
-export class ScrolltopComponent {
-
-}
+export class ScrolltopComponent {}

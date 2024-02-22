@@ -1,180 +1,183 @@
-"use strict";
+'use strict';
 
 var KTSwapperHandlersInitialized = false;
 
 // Class definition
-var KTSwapper = function(element, options) {
-    ////////////////////////////
-    // ** Private Variables  ** //
-    ////////////////////////////
-    var the = this;
+var KTSwapper = function (element, options) {
+  ////////////////////////////
+  // ** Private Variables  ** //
+  ////////////////////////////
+  var the = this;
 
-    if ( typeof element === "undefined" || element === null ) {
-        return;
+  if (typeof element === 'undefined' || element === null) {
+    return;
+  }
+
+  // Default Options
+  var defaultOptions = {
+    mode: 'append',
+  };
+
+  ////////////////////////////
+  // ** Private Methods  ** //
+  ////////////////////////////
+
+  var _construct = function () {
+    if (KTUtil.data(element).has('swapper') === true) {
+      the = KTUtil.data(element).get('swapper');
+    } else {
+      _init();
     }
+  };
 
-    // Default Options
-    var defaultOptions = {
-        mode: 'append'
-    };
+  var _init = function () {
+    the.element = element;
+    the.options = KTUtil.deepExtend({}, defaultOptions, options);
 
-    ////////////////////////////
-    // ** Private Methods  ** //
-    ////////////////////////////
+    // Set initialized
+    the.element.setAttribute('data-kt-swapper', 'true');
 
-    var _construct = function() {
-        if ( KTUtil.data(element).has('swapper') === true ) {
-            the = KTUtil.data(element).get('swapper');
-        } else {
-            _init();
-        }
+    // Initial update
+    _update();
+
+    // Bind Instance
+    KTUtil.data(the.element).set('swapper', the);
+  };
+
+  var _update = function (e) {
+    var parentSelector = _getOption('parent');
+
+    var mode = _getOption('mode');
+    var parentElement = parentSelector ? document.querySelector(parentSelector) : null;
+
+    if (parentElement && element.parentNode !== parentElement) {
+      if (mode === 'prepend') {
+        parentElement.prepend(element);
+      } else if (mode === 'append') {
+        parentElement.append(element);
+      }
     }
+  };
 
-    var _init = function() {
-        the.element = element;
-        the.options = KTUtil.deepExtend({}, defaultOptions, options);
+  var _getOption = function (name) {
+    if (the.element.hasAttribute('data-kt-swapper-' + name) === true) {
+      var attr = the.element.getAttribute('data-kt-swapper-' + name);
+      var value = KTUtil.getResponsiveValue(attr);
 
-        // Set initialized
-        the.element.setAttribute('data-kt-swapper', 'true');
+      if (value !== null && String(value) === 'true') {
+        value = true;
+      } else if (value !== null && String(value) === 'false') {
+        value = false;
+      }
 
-        // Initial update
-        _update();
+      return value;
+    } else {
+      var optionName = KTUtil.snakeToCamel(name);
 
-        // Bind Instance
-        KTUtil.data(the.element).set('swapper', the);
+      if (the.options[optionName]) {
+        return KTUtil.getResponsiveValue(the.options[optionName]);
+      } else {
+        return null;
+      }
     }
+  };
 
-    var _update = function(e) {
-        var parentSelector = _getOption('parent');
+  var _destroy = function () {
+    KTUtil.data(the.element).remove('swapper');
+  };
 
-        var mode = _getOption('mode');
-        var parentElement = parentSelector ? document.querySelector(parentSelector) : null;
-       
+  // Construct Class
+  _construct();
 
-        if (parentElement && element.parentNode !== parentElement) {
-            if (mode === 'prepend') {
-                parentElement.prepend(element);
-            } else if (mode === 'append') {
-                parentElement.append(element);
-            }
-        }
-    }
+  ///////////////////////
+  // ** Public API  ** //
+  ///////////////////////
 
-    var _getOption = function(name) {
-        if ( the.element.hasAttribute('data-kt-swapper-' + name) === true ) {
-            var attr = the.element.getAttribute('data-kt-swapper-' + name);
-            var value = KTUtil.getResponsiveValue(attr);
+  // Methods
+  the.update = function () {
+    _update();
+  };
 
-            if ( value !== null && String(value) === 'true' ) {
-                value = true;
-            } else if ( value !== null && String(value) === 'false' ) {
-                value = false;
-            }
+  the.destroy = function () {
+    return _destroy();
+  };
 
-            return value;
-        } else {
-            var optionName = KTUtil.snakeToCamel(name);
+  // Event API
+  the.on = function (name, handler) {
+    return KTEventHandler.on(the.element, name, handler);
+  };
 
-            if ( the.options[optionName] ) {
-                return KTUtil.getResponsiveValue(the.options[optionName]);
-            } else {
-                return null;
-            }
-        }
-    }
+  the.one = function (name, handler) {
+    return KTEventHandler.one(the.element, name, handler);
+  };
 
-    var _destroy = function() {
-        KTUtil.data(the.element).remove('swapper');
-    }
+  the.off = function (name, handlerId) {
+    return KTEventHandler.off(the.element, name, handlerId);
+  };
 
-    // Construct Class
-    _construct();
-
-    ///////////////////////
-    // ** Public API  ** //
-    ///////////////////////
-
-    // Methods
-    the.update = function() {
-        _update();
-    }
-
-    the.destroy = function() {
-        return _destroy();
-    }
-
-    // Event API
-    the.on = function(name, handler) {
-        return KTEventHandler.on(the.element, name, handler);
-    }
-
-    the.one = function(name, handler) {
-        return KTEventHandler.one(the.element, name, handler);
-    }
-
-    the.off = function(name, handlerId) {
-        return KTEventHandler.off(the.element, name, handlerId);
-    }
-
-    the.trigger = function(name, event) {
-        return KTEventHandler.trigger(the.element, name, event, the, event);
-    }
+  the.trigger = function (name, event) {
+    return KTEventHandler.trigger(the.element, name, event, the, event);
+  };
 };
 
 // Static methods
-KTSwapper.getInstance = function(element) {
-    if ( element !== null && KTUtil.data(element).has('swapper') ) {
-        return KTUtil.data(element).get('swapper');
-    } else {
-        return null;
-    }
-}
+KTSwapper.getInstance = function (element) {
+  if (element !== null && KTUtil.data(element).has('swapper')) {
+    return KTUtil.data(element).get('swapper');
+  } else {
+    return null;
+  }
+};
 
 // Create instances
-KTSwapper.createInstances = function(selector = '[data-kt-swapper="true"]') {
-    // Initialize Menus
-    var elements = document.querySelectorAll(selector);
-    var swapper;
+KTSwapper.createInstances = function (selector = '[data-kt-swapper="true"]') {
+  // Initialize Menus
+  var elements = document.querySelectorAll(selector);
+  var swapper;
 
-    if ( elements && elements.length > 0 ) {
-        for (var i = 0, len = elements.length; i < len; i++) {
-            swapper = new KTSwapper(elements[i]);
-        }
+  if (elements && elements.length > 0) {
+    for (var i = 0, len = elements.length; i < len; i++) {
+      swapper = new KTSwapper(elements[i]);
     }
-}
+  }
+};
 
 // Window resize handler
-KTSwapper.handleResize = function() {
-    window.addEventListener('resize', function() {
-        var timer;
-    
-        KTUtil.throttle(timer, function() {
-            // Locate and update Offcanvas instances on window resize
-            var elements = document.querySelectorAll('[data-kt-swapper="true"]');
-    
-            if ( elements && elements.length > 0 ) {
-                for (var i = 0, len = elements.length; i < len; i++) {
-                    var swapper = KTSwapper.getInstance(elements[i]);
-                    if (swapper) {
-                        swapper.update();
-                    }                
-                }
+KTSwapper.handleResize = function () {
+  window.addEventListener('resize', function () {
+    var timer;
+
+    KTUtil.throttle(
+      timer,
+      function () {
+        // Locate and update Offcanvas instances on window resize
+        var elements = document.querySelectorAll('[data-kt-swapper="true"]');
+
+        if (elements && elements.length > 0) {
+          for (var i = 0, len = elements.length; i < len; i++) {
+            var swapper = KTSwapper.getInstance(elements[i]);
+            if (swapper) {
+              swapper.update();
             }
-        }, 200);
-    });
+          }
+        }
+      },
+      200
+    );
+  });
 };
 
 // Global initialization
-KTSwapper.init = function() {
-    KTSwapper.createInstances();
+KTSwapper.init = function () {
+  KTSwapper.createInstances();
 
-    if (KTSwapperHandlersInitialized === false) {
-        KTSwapper.handleResize();
-        KTSwapperHandlersInitialized = true;
-    }
+  if (KTSwapperHandlersInitialized === false) {
+    KTSwapper.handleResize();
+    KTSwapperHandlersInitialized = true;
+  }
 };
 
 // Webpack support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTSwapper;
+  module.exports = KTSwapper;
 }

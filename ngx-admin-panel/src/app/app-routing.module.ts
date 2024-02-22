@@ -18,10 +18,9 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () =>
-          import('./home/home.module').then((m) => m.HomeModule),
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
       },
-    ]
+    ],
   },
   {
     path: '',
@@ -32,17 +31,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () =>
-          import('./account/account.module').then((m) => m.AccountModule),
+        loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
       },
     ],
   },
   { path: '**', redirectTo: '' },
 ];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -5,13 +5,11 @@ import { HomeComponent } from './home.component';
 import { CoreModule } from '../core/core.module';
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     //CoreModule.forRoot()
-  ]
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

@@ -1,209 +1,207 @@
-"use strict";
+'use strict';
 
 // Class definition
-var KTImageInput = function(element, options) {
-    ////////////////////////////
-    // ** Private Variables  ** //
-    ////////////////////////////
-    var the = this;
+var KTImageInput = function (element, options) {
+  ////////////////////////////
+  // ** Private Variables  ** //
+  ////////////////////////////
+  var the = this;
 
-    if ( typeof element === "undefined" || element === null ) {
-        return;
+  if (typeof element === 'undefined' || element === null) {
+    return;
+  }
+
+  // Default Options
+  var defaultOptions = {};
+
+  ////////////////////////////
+  // ** Private Methods  ** //
+  ////////////////////////////
+
+  var _construct = function () {
+    if (KTUtil.data(element).has('image-input') === true) {
+      the = KTUtil.data(element).get('image-input');
+    } else {
+      _init();
     }
+  };
 
-    // Default Options
-    var defaultOptions = {
-        
-    };
+  var _init = function () {
+    // Variables
+    the.options = KTUtil.deepExtend({}, defaultOptions, options);
+    the.uid = KTUtil.getUniqueId('image-input');
 
-    ////////////////////////////
-    // ** Private Methods  ** //
-    ////////////////////////////
+    // Elements
+    the.element = element;
+    the.inputElement = KTUtil.find(element, 'input[type="file"]');
+    the.wrapperElement = KTUtil.find(element, '.image-input-wrapper');
+    the.cancelElement = KTUtil.find(element, '[data-kt-image-input-action="cancel"]');
+    the.removeElement = KTUtil.find(element, '[data-kt-image-input-action="remove"]');
+    the.hiddenElement = KTUtil.find(element, 'input[type="hidden"]');
+    the.src = KTUtil.css(the.wrapperElement, 'backgroundImage');
 
-    var _construct = function() {
-        if ( KTUtil.data(element).has('image-input') === true ) {
-            the = KTUtil.data(element).get('image-input');
-        } else {
-            _init();
-        }
-    }
-
-    var _init = function() {
-        // Variables
-        the.options = KTUtil.deepExtend({}, defaultOptions, options);
-        the.uid = KTUtil.getUniqueId('image-input');
-
-        // Elements
-        the.element = element;
-        the.inputElement = KTUtil.find(element, 'input[type="file"]');
-        the.wrapperElement = KTUtil.find(element, '.image-input-wrapper');
-        the.cancelElement = KTUtil.find(element, '[data-kt-image-input-action="cancel"]');
-        the.removeElement = KTUtil.find(element, '[data-kt-image-input-action="remove"]');
-        the.hiddenElement = KTUtil.find(element, 'input[type="hidden"]');
-        the.src = KTUtil.css(the.wrapperElement, 'backgroundImage');
-
-        // Set initialized
-        the.element.setAttribute('data-kt-image-input', 'true');
-
-        // Event Handlers
-        _handlers();
-
-        // Bind Instance
-        KTUtil.data(the.element).set('image-input', the);
-    }
-
-    // Init Event Handlers
-    var _handlers = function() {
-        KTUtil.addEvent(the.inputElement, 'change', _change);
-        KTUtil.addEvent(the.cancelElement, 'click', _cancel);
-        KTUtil.addEvent(the.removeElement, 'click', _remove);
-    }
+    // Set initialized
+    the.element.setAttribute('data-kt-image-input', 'true');
 
     // Event Handlers
-    var _change = function(e) {
-        e.preventDefault();
+    _handlers();
 
-        if ( the.inputElement !== null && the.inputElement.files && the.inputElement.files[0] ) {
-            // Fire change event
-            if ( KTEventHandler.trigger(the.element, 'kt.imageinput.change', the) === false ) {
-                return;
-            }
+    // Bind Instance
+    KTUtil.data(the.element).set('image-input', the);
+  };
 
-            var reader = new FileReader();
+  // Init Event Handlers
+  var _handlers = function () {
+    KTUtil.addEvent(the.inputElement, 'change', _change);
+    KTUtil.addEvent(the.cancelElement, 'click', _cancel);
+    KTUtil.addEvent(the.removeElement, 'click', _remove);
+  };
 
-            reader.onload = function(e) {
-                KTUtil.css(the.wrapperElement, 'background-image', 'url('+ e.target.result +')');
-            }
+  // Event Handlers
+  var _change = function (e) {
+    e.preventDefault();
 
-            reader.readAsDataURL(the.inputElement.files[0]);
+    if (the.inputElement !== null && the.inputElement.files && the.inputElement.files[0]) {
+      // Fire change event
+      if (KTEventHandler.trigger(the.element, 'kt.imageinput.change', the) === false) {
+        return;
+      }
 
-            the.element.classList.add('image-input-changed');
-            the.element.classList.remove('image-input-empty');
+      var reader = new FileReader();
 
-            // Fire removed event
-            KTEventHandler.trigger(the.element, 'kt.imageinput.changed', the);
-        }
+      reader.onload = function (e) {
+        KTUtil.css(the.wrapperElement, 'background-image', 'url(' + e.target.result + ')');
+      };
+
+      reader.readAsDataURL(the.inputElement.files[0]);
+
+      the.element.classList.add('image-input-changed');
+      the.element.classList.remove('image-input-empty');
+
+      // Fire removed event
+      KTEventHandler.trigger(the.element, 'kt.imageinput.changed', the);
+    }
+  };
+
+  var _cancel = function (e) {
+    e.preventDefault();
+
+    // Fire cancel event
+    if (KTEventHandler.trigger(the.element, 'kt.imageinput.cancel', the) === false) {
+      return;
     }
 
-    var _cancel = function(e) {
-        e.preventDefault();
+    the.element.classList.remove('image-input-changed');
+    the.element.classList.remove('image-input-empty');
 
-        // Fire cancel event
-        if ( KTEventHandler.trigger(the.element, 'kt.imageinput.cancel', the) === false ) {
-            return;
-        }
-
-        the.element.classList.remove('image-input-changed');
-        the.element.classList.remove('image-input-empty');
-
-        if (the.src === 'none') {   
-            KTUtil.css(the.wrapperElement, 'background-image', '');
-            the.element.classList.add('image-input-empty');
-        } else {
-            KTUtil.css(the.wrapperElement, 'background-image', the.src);
-        }
-        
-        the.inputElement.value = "";
-
-        if ( the.hiddenElement !== null ) {
-            the.hiddenElement.value = "0";
-        }
-
-        // Fire canceled event
-        KTEventHandler.trigger(the.element, 'kt.imageinput.canceled', the);
+    if (the.src === 'none') {
+      KTUtil.css(the.wrapperElement, 'background-image', '');
+      the.element.classList.add('image-input-empty');
+    } else {
+      KTUtil.css(the.wrapperElement, 'background-image', the.src);
     }
 
-    var _remove = function(e) {
-        e.preventDefault();
+    the.inputElement.value = '';
 
-        // Fire remove event
-        if ( KTEventHandler.trigger(the.element, 'kt.imageinput.remove', the) === false ) {
-            return;
-        }
-
-        the.element.classList.remove('image-input-changed');
-        the.element.classList.add('image-input-empty');
-
-        KTUtil.css(the.wrapperElement, 'background-image', "none");
-        the.inputElement.value = "";
-
-        if ( the.hiddenElement !== null ) {
-            the.hiddenElement.value = "1";
-        }
-
-        // Fire removed event
-        KTEventHandler.trigger(the.element, 'kt.imageinput.removed', the);
+    if (the.hiddenElement !== null) {
+      the.hiddenElement.value = '0';
     }
 
-    var _destroy = function() {
-        KTUtil.data(the.element).remove('image-input');
+    // Fire canceled event
+    KTEventHandler.trigger(the.element, 'kt.imageinput.canceled', the);
+  };
+
+  var _remove = function (e) {
+    e.preventDefault();
+
+    // Fire remove event
+    if (KTEventHandler.trigger(the.element, 'kt.imageinput.remove', the) === false) {
+      return;
     }
 
-    // Construct Class
-    _construct();
+    the.element.classList.remove('image-input-changed');
+    the.element.classList.add('image-input-empty');
 
-    ///////////////////////
-    // ** Public API  ** //
-    ///////////////////////
+    KTUtil.css(the.wrapperElement, 'background-image', 'none');
+    the.inputElement.value = '';
 
-    // Plugin API
-    the.getInputElement = function() {
-        return the.inputElement;
+    if (the.hiddenElement !== null) {
+      the.hiddenElement.value = '1';
     }
 
-    the.getElement = function() {
-        return the.element;
-    }
-    
-    the.destroy = function() {
-        return _destroy();
-    }
+    // Fire removed event
+    KTEventHandler.trigger(the.element, 'kt.imageinput.removed', the);
+  };
 
-    // Event API
-    the.on = function(name, handler) {
-        return KTEventHandler.on(the.element, name, handler);
-    }
+  var _destroy = function () {
+    KTUtil.data(the.element).remove('image-input');
+  };
 
-    the.one = function(name, handler) {
-        return KTEventHandler.one(the.element, name, handler);
-    }
+  // Construct Class
+  _construct();
 
-    the.off = function(name, handlerId) {
-        return KTEventHandler.off(the.element, name, handlerId);
-    }
+  ///////////////////////
+  // ** Public API  ** //
+  ///////////////////////
 
-    the.trigger = function(name, event) {
-        return KTEventHandler.trigger(the.element, name, event, the, event);
-    }
+  // Plugin API
+  the.getInputElement = function () {
+    return the.inputElement;
+  };
+
+  the.getElement = function () {
+    return the.element;
+  };
+
+  the.destroy = function () {
+    return _destroy();
+  };
+
+  // Event API
+  the.on = function (name, handler) {
+    return KTEventHandler.on(the.element, name, handler);
+  };
+
+  the.one = function (name, handler) {
+    return KTEventHandler.one(the.element, name, handler);
+  };
+
+  the.off = function (name, handlerId) {
+    return KTEventHandler.off(the.element, name, handlerId);
+  };
+
+  the.trigger = function (name, event) {
+    return KTEventHandler.trigger(the.element, name, event, the, event);
+  };
 };
 
 // Static methods
-KTImageInput.getInstance = function(element) {
-    if ( element !== null && KTUtil.data(element).has('image-input') ) {
-        return KTUtil.data(element).get('image-input');
-    } else {
-        return null;
-    }
-}
+KTImageInput.getInstance = function (element) {
+  if (element !== null && KTUtil.data(element).has('image-input')) {
+    return KTUtil.data(element).get('image-input');
+  } else {
+    return null;
+  }
+};
 
 // Create instances
-KTImageInput.createInstances = function(selector = '[data-kt-image-input]') {
-    // Initialize Menus
-    var elements = document.querySelectorAll(selector);
+KTImageInput.createInstances = function (selector = '[data-kt-image-input]') {
+  // Initialize Menus
+  var elements = document.querySelectorAll(selector);
 
-    if ( elements && elements.length > 0 ) {
-        for (var i = 0, len = elements.length; i < len; i++) {
-            new KTImageInput(elements[i]);
-        }
+  if (elements && elements.length > 0) {
+    for (var i = 0, len = elements.length; i < len; i++) {
+      new KTImageInput(elements[i]);
     }
-}
+  }
+};
 
 // Global initialization
-KTImageInput.init = function() {
-    KTImageInput.createInstances();
+KTImageInput.init = function () {
+  KTImageInput.createInstances();
 };
 
 // Webpack Support
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTImageInput;
+  module.exports = KTImageInput;
 }

@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'app-aside',
   templateUrl: './aside.component.html',
 })
-export class AsideComponent {
-
-}
+export class AsideComponent {}

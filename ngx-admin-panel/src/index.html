@@ -1,17 +1,34 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
-
-  <!--begin::Theme mode setup on page load-->
-  <script>var defaultThemeMode = "light"; var themeMode; if (document.documentElement) { if (document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if (localStorage.getItem("data-bs-theme") !== null) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
-  <!--end::Theme mode setup on page load-->
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
+    <!--begin::Theme mode setup on page load-->
+    <script>
+      var defaultThemeMode = 'light';
+      var themeMode;
+      if (document.documentElement) {
+        if (document.documentElement.hasAttribute('data-bs-theme-mode')) {
+          themeMode = document.documentElement.getAttribute('data-bs-theme-mode');
+        } else {
+          if (localStorage.getItem('data-bs-theme') !== null) {
+            themeMode = localStorage.getItem('data-bs-theme');
+          } else {
+            themeMode = defaultThemeMode;
+          }
+        }
+        if (themeMode === 'system') {
+          themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-bs-theme', themeMode);
+      }
+    </script>
+    <!--end::Theme mode setup on page load-->
+    <app-root></app-root>
+  </body>
 </html>

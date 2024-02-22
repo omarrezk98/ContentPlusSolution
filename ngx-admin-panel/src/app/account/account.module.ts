@@ -5,16 +5,8 @@ import { AccountComponent } from './account.component';
 import { LoginComponent } from './login/login.component';
 import { CoreModule } from '../core/core.module';
 
-
 @NgModule({
-  declarations: [
-    AccountComponent,
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    AccountRoutingModule,
-    CoreModule.forRoot()
-  ]
+  declarations: [AccountComponent, LoginComponent],
+  imports: [CommonModule, AccountRoutingModule, CoreModule.forRoot()],
 })
-export class AccountModule { }
+export class AccountModule {}

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * @class KTUtil  base utilize class that privides helper functions
@@ -41,12 +41,12 @@ if (!Element.prototype.closest) {
  */
 (function (elem) {
   for (var i = 0; i < elem.length; i++) {
-    if (!window[elem[i]] || "remove" in window[elem[i]].prototype) continue;
+    if (!window[elem[i]] || 'remove' in window[elem[i]].prototype) continue;
     window[elem[i]].prototype.remove = function () {
       this.parentNode.removeChild(this);
     };
   }
-})(["Element", "CharacterData", "DocumentType"]);
+})(['Element', 'CharacterData', 'DocumentType']);
 
 //
 // requestAnimationFrame polyfill by Erik Möller.
@@ -59,12 +59,10 @@ if (!Element.prototype.closest) {
 //
 (function () {
   var lastTime = 0;
-  var vendors = ["webkit", "moz"];
+  var vendors = ['webkit', 'moz'];
   for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x] + "RequestAnimationFrame"];
-    window.cancelAnimationFrame =
-      window[vendors[x] + "CancelAnimationFrame"] ||
-      window[vendors[x] + "CancelRequestAnimationFrame"];
+    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
   }
 
   if (!window.requestAnimationFrame)
@@ -87,10 +85,10 @@ if (!Element.prototype.closest) {
 // Source: https://github.com/jserz/js_piece/blob/master/DOM/ParentNode/prepend()/prepend().md
 (function (arr) {
   arr.forEach(function (item) {
-    if (item.hasOwnProperty("prepend")) {
+    if (item.hasOwnProperty('prepend')) {
       return;
     }
-    Object.defineProperty(item, "prepend", {
+    Object.defineProperty(item, 'prepend', {
       configurable: true,
       enumerable: true,
       writable: true,
@@ -100,9 +98,7 @@ if (!Element.prototype.closest) {
 
         argArr.forEach(function (argItem) {
           var isNode = argItem instanceof Node;
-          docFrag.appendChild(
-            isNode ? argItem : document.createTextNode(String(argItem))
-          );
+          docFrag.appendChild(isNode ? argItem : document.createTextNode(String(argItem)));
         });
 
         this.insertBefore(docFrag, this.firstChild);
@@ -147,7 +143,7 @@ var KTUtil = (function () {
 
     var timer;
 
-    window.addEventListener("resize", function () {
+    window.addEventListener('resize', function () {
       KTUtil.throttle(
         timer,
         function () {
@@ -197,14 +193,14 @@ var KTUtil = (function () {
     },
 
     resize: function () {
-      if (typeof Event === "function") {
+      if (typeof Event === 'function') {
         // modern browsers
-        window.dispatchEvent(new Event("resize"));
+        window.dispatchEvent(new Event('resize'));
       } else {
         // for IE and other old browsers
         // causes deprecation warning on modern browsers
-        var evt = window.document.createEvent("UIEvents");
-        evt.initUIEvent("resize", true, false, window, 0);
+        var evt = window.document.createEvent('UIEvents');
+        evt.initUIEvent('resize', true, false, window, 0);
         window.dispatchEvent(evt);
       }
     },
@@ -218,10 +214,10 @@ var KTUtil = (function () {
       var searchString = window.location.search.substring(1),
         i,
         val,
-        params = searchString.split("&");
+        params = searchString.split('&');
 
       for (i = 0; i < params.length; i++) {
-        val = params[i].split("=");
+        val = params[i].split('=');
         if (val[0] == paramName) {
           return unescape(val[1]);
         }
@@ -235,8 +231,7 @@ var KTUtil = (function () {
      * @returns {boolean}
      */
     isMobileDevice: function () {
-      var test =
-        this.getViewPort().width < this.getBreakpoint("lg") ? true : false;
+      var test = this.getViewPort().width < this.getBreakpoint('lg') ? true : false;
 
       if (test === false) {
         // For use within normal web clients
@@ -261,15 +256,15 @@ var KTUtil = (function () {
      */
     getViewPort: function () {
       var e = window,
-        a = "inner";
-      if (!("innerWidth" in window)) {
-        a = "client";
+        a = 'inner';
+      if (!('innerWidth' in window)) {
+        a = 'client';
         e = document.documentElement || document.body;
       }
 
       return {
-        width: e[a + "Width"],
-        height: e[a + "Height"],
+        width: e[a + 'Width'],
+        height: e[a + 'Height'],
       };
     },
 
@@ -312,7 +307,7 @@ var KTUtil = (function () {
      * @returns {number}
      */
     getBreakpoint: function (breakpoint) {
-      var value = this.getCssVariableValue("--bs-" + breakpoint);
+      var value = this.getCssVariableValue('--bs-' + breakpoint);
 
       if (value) {
         value = parseInt(value.trim());
@@ -330,13 +325,13 @@ var KTUtil = (function () {
     isset: function (obj, keys) {
       var stone;
 
-      keys = keys || "";
+      keys = keys || '';
 
-      if (keys.indexOf("[") !== -1) {
-        throw new Error("Unsupported object path notation.");
+      if (keys.indexOf('[') !== -1) {
+        throw new Error('Unsupported object path notation.');
       }
 
-      keys = keys.split(".");
+      keys = keys.split('.');
 
       do {
         if (obj === undefined) {
@@ -367,18 +362,14 @@ var KTUtil = (function () {
         // Ignore z-index if position is set to a value where z-index is ignored by the browser
         // This makes behavior of this function consistent across browsers
         // WebKit always returns auto if the element is positioned
-        position = KTUtil.css(el, "position");
+        position = KTUtil.css(el, 'position');
 
-        if (
-          position === "absolute" ||
-          position === "relative" ||
-          position === "fixed"
-        ) {
+        if (position === 'absolute' || position === 'relative' || position === 'fixed') {
           // IE returns 0 when zIndex is not specified
           // other browsers return a string
           // we ignore the case of nested elements with an explicit value of 0
           // <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
-          value = parseInt(KTUtil.css(el, "z-index"));
+          value = parseInt(KTUtil.css(el, 'z-index'));
 
           if (!isNaN(value) && value !== 0) {
             return value;
@@ -400,9 +391,9 @@ var KTUtil = (function () {
       var position;
 
       while (el && el !== document) {
-        position = KTUtil.css(el, "position");
+        position = KTUtil.css(el, 'position');
 
-        if (position === "fixed") {
+        if (position === 'fixed') {
           return true;
         }
 
@@ -456,7 +447,7 @@ var KTUtil = (function () {
           }
 
           // based on https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/
-          if (Object.prototype.toString.call(obj[key]) === "[object Object]") {
+          if (Object.prototype.toString.call(obj[key]) === '[object Object]') {
             out[key] = KTUtil.deepExtend(out[key], obj[key]);
             continue;
           }
@@ -484,7 +475,7 @@ var KTUtil = (function () {
     },
 
     getBody: function () {
-      return document.getElementsByTagName("body")[0];
+      return document.getElementsByTagName('body')[0];
     },
 
     /**
@@ -498,7 +489,7 @@ var KTUtil = (function () {
         return;
       }
 
-      var classesArr = classes.split(" ");
+      var classesArr = classes.split(' ');
 
       for (var i = 0; i < classesArr.length; i++) {
         if (KTUtil.hasClass(el, KTUtil.trim(classesArr[i])) == false) {
@@ -514,17 +505,15 @@ var KTUtil = (function () {
         return;
       }
 
-      return el.classList
-        ? el.classList.contains(className)
-        : new RegExp("\\b" + className + "\\b").test(el.className);
+      return el.classList ? el.classList.contains(className) : new RegExp('\\b' + className + '\\b').test(el.className);
     },
 
     addClass: function (el, className) {
-      if (!el || typeof className === "undefined") {
+      if (!el || typeof className === 'undefined') {
         return;
       }
 
-      var classNames = className.split(" ");
+      var classNames = className.split(' ');
 
       if (el.classList) {
         for (var i = 0; i < classNames.length; i++) {
@@ -534,17 +523,17 @@ var KTUtil = (function () {
         }
       } else if (!KTUtil.hasClass(el, className)) {
         for (var x = 0; x < classNames.length; x++) {
-          el.className += " " + KTUtil.trim(classNames[x]);
+          el.className += ' ' + KTUtil.trim(classNames[x]);
         }
       }
     },
 
     removeClass: function (el, className) {
-      if (!el || typeof className === "undefined") {
+      if (!el || typeof className === 'undefined') {
         return;
       }
 
-      var classNames = className.split(" ");
+      var classNames = className.split(' ');
 
       if (el.classList) {
         for (var i = 0; i < classNames.length; i++) {
@@ -552,10 +541,7 @@ var KTUtil = (function () {
         }
       } else if (KTUtil.hasClass(el, className)) {
         for (var x = 0; x < classNames.length; x++) {
-          el.className = el.className.replace(
-            new RegExp("\\b" + KTUtil.trim(classNames[x]) + "\\b", "g"),
-            ""
-          );
+          el.className = el.className.replace(new RegExp('\\b' + KTUtil.trim(classNames[x]) + '\\b', 'g'), '');
         }
       }
     },
@@ -567,7 +553,7 @@ var KTUtil = (function () {
           detail: data,
         });
       } else {
-        event = document.createEvent("CustomEvent");
+        event = document.createEvent('CustomEvent');
         event.initCustomEvent(eventName, true, true, data);
       }
 
@@ -584,43 +570,39 @@ var KTUtil = (function () {
         // the node may be the document itself, nodeType 9 = DOCUMENT_NODE
         doc = node;
       } else {
-        throw new Error("Invalid node passed to fireEvent: " + node.id);
+        throw new Error('Invalid node passed to fireEvent: ' + node.id);
       }
 
       if (node.dispatchEvent) {
         // Gecko-style approach (now the standard) takes more work
-        var eventClass = "";
+        var eventClass = '';
 
         // Different events have different event classes.
         // If this switch statement can't map an eventName to an eventClass,
         // the event firing is going to fail.
         switch (eventName) {
-          case "click": // Dispatching of 'click' appears to not work correctly in Safari. Use 'mousedown' or 'mouseup' instead.
-          case "mouseenter":
-          case "mouseleave":
-          case "mousedown":
-          case "mouseup":
-            eventClass = "MouseEvents";
+          case 'click': // Dispatching of 'click' appears to not work correctly in Safari. Use 'mousedown' or 'mouseup' instead.
+          case 'mouseenter':
+          case 'mouseleave':
+          case 'mousedown':
+          case 'mouseup':
+            eventClass = 'MouseEvents';
             break;
 
-          case "focus":
-          case "change":
-          case "blur":
-          case "select":
-            eventClass = "HTMLEvents";
+          case 'focus':
+          case 'change':
+          case 'blur':
+          case 'select':
+            eventClass = 'HTMLEvents';
             break;
 
           default:
-            throw (
-              "fireEvent: Couldn't find an event class for event '" +
-              eventName +
-              "'."
-            );
+            throw "fireEvent: Couldn't find an event class for event '" + eventName + "'.";
             break;
         }
         var event = doc.createEvent(eventClass);
 
-        var bubbles = eventName == "change" ? false : true;
+        var bubbles = eventName == 'change' ? false : true;
         event.initEvent(eventName, bubbles, true); // All events created as bubbling and cancelable.
 
         event.synthetic = true; // allow detection of synthetic events
@@ -630,7 +612,7 @@ var KTUtil = (function () {
         // IE-old school style
         var event = doc.createEventObject();
         event.synthetic = true; // allow detection of synthetic events
-        node.fireEvent("on" + eventName, event);
+        node.fireEvent('on' + eventName, event);
       }
     },
 
@@ -677,10 +659,7 @@ var KTUtil = (function () {
     },
 
     insertAfter: function (el, referenceNode) {
-      return referenceNode.parentNode.insertBefore(
-        el,
-        referenceNode.nextSibling
-      );
+      return referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
     },
 
     parents: function (elem, selector) {
@@ -712,10 +691,7 @@ var KTUtil = (function () {
         l = el.childNodes.length;
 
       for (var i; i < l; ++i) {
-        if (
-          el.childNodes[i].nodeType == 1 &&
-          KTUtil.matches(el.childNodes[i], selector, log)
-        ) {
+        if (el.childNodes[i].nodeType == 1 && KTUtil.matches(el.childNodes[i], selector, log)) {
           result.push(el.childNodes[i]);
         }
       }
@@ -775,9 +751,7 @@ var KTUtil = (function () {
             return null;
           }
 
-          return this.has(name)
-            ? window.KTUtilElementDataStore[el.customDataTag][name]
-            : null;
+          return this.has(name) ? window.KTUtilElementDataStore[el.customDataTag][name] : null;
         },
 
         has: function (name) {
@@ -789,10 +763,7 @@ var KTUtil = (function () {
             return false;
           }
 
-          return window.KTUtilElementDataStore[el.customDataTag] &&
-            window.KTUtilElementDataStore[el.customDataTag][name]
-            ? true
-            : false;
+          return window.KTUtilElementDataStore[el.customDataTag] && window.KTUtilElementDataStore[el.customDataTag][name] ? true : false;
         },
 
         remove: function (name) {
@@ -808,9 +779,7 @@ var KTUtil = (function () {
 
       if (margin === true) {
         width = parseFloat(el.offsetWidth);
-        width +=
-          parseFloat(KTUtil.css(el, "margin-left")) +
-          parseFloat(KTUtil.css(el, "margin-right"));
+        width += parseFloat(KTUtil.css(el, 'margin-left')) + parseFloat(KTUtil.css(el, 'margin-right'));
 
         return parseFloat(width);
       } else {
@@ -848,14 +817,14 @@ var KTUtil = (function () {
     },
 
     height: function (el) {
-      return KTUtil.css(el, "height");
+      return KTUtil.css(el, 'height');
     },
 
     outerHeight: function (el, withMargin) {
       var height = el.offsetHeight;
       var style;
 
-      if (typeof withMargin !== "undefined" && withMargin === true) {
+      if (typeof withMargin !== 'undefined' && withMargin === true) {
         style = getComputedStyle(el);
         height += parseInt(style.marginTop) + parseInt(style.marginBottom);
 
@@ -926,17 +895,12 @@ var KTUtil = (function () {
       easing = easings.linear;
 
       // Early bail out if called incorrectly
-      if (
-        typeof from !== "number" ||
-        typeof to !== "number" ||
-        typeof duration !== "number" ||
-        typeof update !== "function"
-      ) {
+      if (typeof from !== 'number' || typeof to !== 'number' || typeof duration !== 'number' || typeof update !== 'function') {
         return;
       }
 
       // Create mock done() function if necessary
-      if (typeof done !== "function") {
+      if (typeof done !== 'function') {
         done = function () {};
       }
 
@@ -968,63 +932,57 @@ var KTUtil = (function () {
       update(from);
 
       // Start animation loop
-      var start =
-        window.performance && window.performance.now
-          ? window.performance.now()
-          : +new Date();
+      var start = window.performance && window.performance.now ? window.performance.now() : +new Date();
 
       rAF(loop);
     },
 
     actualCss: function (el, prop, cache) {
-      var css = "";
+      var css = '';
 
       if (el instanceof HTMLElement === false) {
         return;
       }
 
-      if (!el.getAttribute("kt-hidden-" + prop) || cache === false) {
+      if (!el.getAttribute('kt-hidden-' + prop) || cache === false) {
         var value;
 
         // the element is hidden so:
         // making the el block so we can meassure its height but still be hidden
         css = el.style.cssText;
-        el.style.cssText =
-          "position: absolute; visibility: hidden; display: block;";
+        el.style.cssText = 'position: absolute; visibility: hidden; display: block;';
 
-        if (prop == "width") {
+        if (prop == 'width') {
           value = el.offsetWidth;
-        } else if (prop == "height") {
+        } else if (prop == 'height') {
           value = el.offsetHeight;
         }
 
         el.style.cssText = css;
 
         // store it in cache
-        el.setAttribute("kt-hidden-" + prop, value);
+        el.setAttribute('kt-hidden-' + prop, value);
 
         return parseFloat(value);
       } else {
         // store it in cache
-        return parseFloat(el.getAttribute("kt-hidden-" + prop));
+        return parseFloat(el.getAttribute('kt-hidden-' + prop));
       }
     },
 
     actualHeight: function (el, cache) {
-      return KTUtil.actualCss(el, "height", cache);
+      return KTUtil.actualCss(el, 'height', cache);
     },
 
     actualWidth: function (el, cache) {
-      return KTUtil.actualCss(el, "width", cache);
+      return KTUtil.actualCss(el, 'width', cache);
     },
 
     getScroll: function (element, method) {
       // The passed in `method` value should be 'Top' or 'Left'
-      method = "scroll" + method;
+      method = 'scroll' + method;
       return element == window || element == document
-        ? self[method == "scrollTop" ? "pageYOffset" : "pageXOffset"] ||
-            (browserSupportsBoxModel && document.documentElement[method]) ||
-            document.body[method]
+        ? self[method == 'scrollTop' ? 'pageYOffset' : 'pageXOffset'] || (browserSupportsBoxModel && document.documentElement[method]) || document.body[method]
         : element[method];
     },
 
@@ -1035,7 +993,7 @@ var KTUtil = (function () {
 
       if (value !== undefined) {
         if (important === true) {
-          el.style.setProperty(styleProp, value, "important");
+          el.style.setProperty(styleProp, value, 'important');
         } else {
           el.style[styleProp] = value;
         }
@@ -1046,11 +1004,9 @@ var KTUtil = (function () {
         if (defaultView && defaultView.getComputedStyle) {
           // sanitize property name to css notation
           // (hyphen separated words eg. font-Size)
-          styleProp = styleProp.replace(/([A-Z])/g, "-$1").toLowerCase();
+          styleProp = styleProp.replace(/([A-Z])/g, '-$1').toLowerCase();
 
-          return defaultView
-            .getComputedStyle(el, null)
-            .getPropertyValue(styleProp);
+          return defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
         } else if (el.currentStyle) {
           // IE
           // sanitize property name to camelCase
@@ -1068,7 +1024,7 @@ var KTUtil = (function () {
 
               el.runtimeStyle.left = el.currentStyle.left;
               el.style.left = value || 0;
-              value = el.style.pixelLeft + "px";
+              value = el.style.pixelLeft + 'px';
               el.style.left = oldLeft;
               el.runtimeStyle.left = oldRsLeft;
 
@@ -1082,11 +1038,7 @@ var KTUtil = (function () {
     },
 
     slide: function (el, dir, speed, callback, recalcMaxHeight) {
-      if (
-        !el ||
-        (dir == "up" && KTUtil.visible(el) === false) ||
-        (dir == "down" && KTUtil.visible(el) === true)
-      ) {
+      if (!el || (dir == 'up' && KTUtil.visible(el) === false) || (dir == 'down' && KTUtil.visible(el) === true)) {
         return;
       }
 
@@ -1095,36 +1047,25 @@ var KTUtil = (function () {
       var calcPaddingTop = false;
       var calcPaddingBottom = false;
 
-      if (
-        KTUtil.css(el, "padding-top") &&
-        KTUtil.data(el).has("slide-padding-top") !== true
-      ) {
-        KTUtil.data(el).set("slide-padding-top", KTUtil.css(el, "padding-top"));
+      if (KTUtil.css(el, 'padding-top') && KTUtil.data(el).has('slide-padding-top') !== true) {
+        KTUtil.data(el).set('slide-padding-top', KTUtil.css(el, 'padding-top'));
       }
 
-      if (
-        KTUtil.css(el, "padding-bottom") &&
-        KTUtil.data(el).has("slide-padding-bottom") !== true
-      ) {
-        KTUtil.data(el).set(
-          "slide-padding-bottom",
-          KTUtil.css(el, "padding-bottom")
-        );
+      if (KTUtil.css(el, 'padding-bottom') && KTUtil.data(el).has('slide-padding-bottom') !== true) {
+        KTUtil.data(el).set('slide-padding-bottom', KTUtil.css(el, 'padding-bottom'));
       }
 
-      if (KTUtil.data(el).has("slide-padding-top")) {
-        calcPaddingTop = parseInt(KTUtil.data(el).get("slide-padding-top"));
+      if (KTUtil.data(el).has('slide-padding-top')) {
+        calcPaddingTop = parseInt(KTUtil.data(el).get('slide-padding-top'));
       }
 
-      if (KTUtil.data(el).has("slide-padding-bottom")) {
-        calcPaddingBottom = parseInt(
-          KTUtil.data(el).get("slide-padding-bottom")
-        );
+      if (KTUtil.data(el).has('slide-padding-bottom')) {
+        calcPaddingBottom = parseInt(KTUtil.data(el).get('slide-padding-bottom'));
       }
 
-      if (dir == "up") {
+      if (dir == 'up') {
         // up
-        el.style.cssText = "display: block; overflow: hidden;";
+        el.style.cssText = 'display: block; overflow: hidden;';
 
         if (calcPaddingTop) {
           KTUtil.animate(
@@ -1132,9 +1073,9 @@ var KTUtil = (function () {
             calcPaddingTop,
             speed,
             function (value) {
-              el.style.paddingTop = calcPaddingTop - value + "px";
+              el.style.paddingTop = calcPaddingTop - value + 'px';
             },
-            "linear"
+            'linear'
           );
         }
 
@@ -1144,9 +1085,9 @@ var KTUtil = (function () {
             calcPaddingBottom,
             speed,
             function (value) {
-              el.style.paddingBottom = calcPaddingBottom - value + "px";
+              el.style.paddingBottom = calcPaddingBottom - value + 'px';
             },
-            "linear"
+            'linear'
           );
         }
 
@@ -1155,21 +1096,21 @@ var KTUtil = (function () {
           calcHeight,
           speed,
           function (value) {
-            el.style.height = calcHeight - value + "px";
+            el.style.height = calcHeight - value + 'px';
           },
-          "linear",
+          'linear',
           function () {
-            el.style.height = "";
-            el.style.display = "none";
+            el.style.height = '';
+            el.style.display = 'none';
 
-            if (typeof callback === "function") {
+            if (typeof callback === 'function') {
               callback();
             }
           }
         );
-      } else if (dir == "down") {
+      } else if (dir == 'down') {
         // down
-        el.style.cssText = "display: block; overflow: hidden;";
+        el.style.cssText = 'display: block; overflow: hidden;';
 
         if (calcPaddingTop) {
           KTUtil.animate(
@@ -1178,11 +1119,11 @@ var KTUtil = (function () {
             speed,
             function (value) {
               //
-              el.style.paddingTop = value + "px";
+              el.style.paddingTop = value + 'px';
             },
-            "linear",
+            'linear',
             function () {
-              el.style.paddingTop = "";
+              el.style.paddingTop = '';
             }
           );
         }
@@ -1193,11 +1134,11 @@ var KTUtil = (function () {
             calcPaddingBottom,
             speed,
             function (value) {
-              el.style.paddingBottom = value + "px";
+              el.style.paddingBottom = value + 'px';
             },
-            "linear",
+            'linear',
             function () {
-              el.style.paddingBottom = "";
+              el.style.paddingBottom = '';
             }
           );
         }
@@ -1207,15 +1148,15 @@ var KTUtil = (function () {
           calcHeight,
           speed,
           function (value) {
-            el.style.height = value + "px";
+            el.style.height = value + 'px';
           },
-          "linear",
+          'linear',
           function () {
-            el.style.height = "";
-            el.style.display = "";
-            el.style.overflow = "";
+            el.style.height = '';
+            el.style.display = '';
+            el.style.overflow = '';
 
-            if (typeof callback === "function") {
+            if (typeof callback === 'function') {
               callback();
             }
           }
@@ -1224,27 +1165,27 @@ var KTUtil = (function () {
     },
 
     slideUp: function (el, speed, callback) {
-      KTUtil.slide(el, "up", speed, callback);
+      KTUtil.slide(el, 'up', speed, callback);
     },
 
     slideDown: function (el, speed, callback) {
-      KTUtil.slide(el, "down", speed, callback);
+      KTUtil.slide(el, 'down', speed, callback);
     },
 
     show: function (el, display) {
-      if (typeof el !== "undefined") {
-        el.style.display = display ? display : "block";
+      if (typeof el !== 'undefined') {
+        el.style.display = display ? display : 'block';
       }
     },
 
     hide: function (el) {
-      if (typeof el !== "undefined") {
-        el.style.display = "none";
+      if (typeof el !== 'undefined') {
+        el.style.display = 'none';
       }
     },
 
     addEvent: function (el, type, handler, one) {
-      if (typeof el !== "undefined" && el !== null) {
+      if (typeof el !== 'undefined' && el !== null) {
         el.addEventListener(type, handler);
       }
     },
@@ -1260,7 +1201,7 @@ var KTUtil = (function () {
         return;
       }
 
-      var eventId = KTUtil.getUniqueId("event");
+      var eventId = KTUtil.getUniqueId('event');
 
       window.KTUtilDelegatedEventHandlers[eventId] = function (e) {
         var targets = element.querySelectorAll(selector);
@@ -1277,11 +1218,7 @@ var KTUtil = (function () {
         }
       };
 
-      KTUtil.addEvent(
-        element,
-        event,
-        window.KTUtilDelegatedEventHandlers[eventId]
-      );
+      KTUtil.addEvent(element, event, window.KTUtilDelegatedEventHandlers[eventId]);
 
       return eventId;
     },
@@ -1291,11 +1228,7 @@ var KTUtil = (function () {
         return;
       }
 
-      KTUtil.removeEvent(
-        element,
-        event,
-        window.KTUtilDelegatedEventHandlers[eventId]
-      );
+      KTUtil.removeEvent(element, event, window.KTUtilDelegatedEventHandlers[eventId]);
 
       delete window.KTUtilDelegatedEventHandlers[eventId];
     },
@@ -1335,11 +1268,11 @@ var KTUtil = (function () {
     animateClass: function (el, animationName, callback) {
       var animation;
       var animations = {
-        animation: "animationend",
-        OAnimation: "oAnimationEnd",
-        MozAnimation: "mozAnimationEnd",
-        WebkitAnimation: "webkitAnimationEnd",
-        msAnimation: "msAnimationEnd",
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+        msAnimation: 'msAnimationEnd',
       };
 
       for (var t in animations) {
@@ -1362,11 +1295,11 @@ var KTUtil = (function () {
     transitionEnd: function (el, callback) {
       var transition;
       var transitions = {
-        transition: "transitionend",
-        OTransition: "oTransitionEnd",
-        MozTransition: "mozTransitionEnd",
-        WebkitTransition: "webkitTransitionEnd",
-        msTransition: "msTransitionEnd",
+        transition: 'transitionend',
+        OTransition: 'oTransitionEnd',
+        MozTransition: 'mozTransitionEnd',
+        WebkitTransition: 'webkitTransitionEnd',
+        msTransition: 'msTransitionEnd',
       };
 
       for (var t in transitions) {
@@ -1381,11 +1314,11 @@ var KTUtil = (function () {
     animationEnd: function (el, callback) {
       var animation;
       var animations = {
-        animation: "animationend",
-        OAnimation: "oAnimationEnd",
-        MozAnimation: "mozAnimationEnd",
-        WebkitAnimation: "webkitAnimationEnd",
-        msAnimation: "msAnimationEnd",
+        animation: 'animationend',
+        OAnimation: 'oAnimationEnd',
+        MozAnimation: 'mozAnimationEnd',
+        WebkitAnimation: 'webkitAnimationEnd',
+        msAnimation: 'msAnimationEnd',
       };
 
       for (var t in animations) {
@@ -1398,27 +1331,23 @@ var KTUtil = (function () {
     },
 
     animateDelay: function (el, value) {
-      var vendors = ["webkit-", "moz-", "ms-", "o-", ""];
+      var vendors = ['webkit-', 'moz-', 'ms-', 'o-', ''];
       for (var i = 0; i < vendors.length; i++) {
-        KTUtil.css(el, vendors[i] + "animation-delay", value);
+        KTUtil.css(el, vendors[i] + 'animation-delay', value);
       }
     },
 
     animateDuration: function (el, value) {
-      var vendors = ["webkit-", "moz-", "ms-", "o-", ""];
+      var vendors = ['webkit-', 'moz-', 'ms-', 'o-', ''];
       for (var i = 0; i < vendors.length; i++) {
-        KTUtil.css(el, vendors[i] + "animation-duration", value);
+        KTUtil.css(el, vendors[i] + 'animation-duration', value);
       }
     },
 
     scrollTo: function (target, offset, duration) {
       var duration = duration ? duration : 500;
       var targetPos = target ? KTUtil.offset(target).top : 0;
-      var scrollPos =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop ||
-        0;
+      var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       var from, to;
 
       if (offset) {
@@ -1454,19 +1383,19 @@ var KTUtil = (function () {
     },
 
     numberString: function (nStr) {
-      nStr += "";
-      var x = nStr.split(".");
+      nStr += '';
+      var x = nStr.split('.');
       var x1 = x[0];
-      var x2 = x.length > 1 ? "." + x[1] : "";
+      var x2 = x.length > 1 ? '.' + x[1] : '';
       var rgx = /(\d+)(\d{3})/;
       while (rgx.test(x1)) {
-        x1 = x1.replace(rgx, "$1" + "," + "$2");
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
       }
       return x1 + x2;
     },
 
     isRTL: function () {
-      return document.querySelector("html").getAttribute("direction") === "rtl";
+      return document.querySelector('html').getAttribute('direction') === 'rtl';
     },
 
     snakeToCamel: function (s) {
@@ -1477,11 +1406,11 @@ var KTUtil = (function () {
 
     filterBoolean: function (val) {
       // Convert string boolean
-      if (val === true || val === "true") {
+      if (val === true || val === 'true') {
         return true;
       }
 
-      if (val === false || val === "false") {
+      if (val === false || val === 'false') {
         return false;
       }
 
@@ -1502,13 +1431,7 @@ var KTUtil = (function () {
       var body = document.body;
       var html = document.documentElement;
 
-      return Math.max(
-        body.scrollHeight,
-        body.offsetHeight,
-        html.clientHeight,
-        html.scrollHeight,
-        html.offsetHeight
-      );
+      return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
     },
 
     getScrollTop: function () {
@@ -1523,14 +1446,10 @@ var KTUtil = (function () {
         return c;
       };
 
-      color =
-        color.indexOf("#") >= 0 ? color.substring(1, color.length) : color;
+      color = color.indexOf('#') >= 0 ? color.substring(1, color.length) : color;
       amount = parseInt((255 * amount) / 100);
 
-      return (color = `#${addLight(color.substring(0, 2), amount)}${addLight(
-        color.substring(2, 4),
-        amount
-      )}${addLight(color.substring(4, 6), amount)}`);
+      return (color = `#${addLight(color.substring(0, 2), amount)}${addLight(color.substring(2, 4), amount)}${addLight(color.substring(4, 6), amount)}`);
     },
 
     colorDarken: function (color, amount) {
@@ -1542,14 +1461,10 @@ var KTUtil = (function () {
         return c;
       };
 
-      color =
-        color.indexOf("#") >= 0 ? color.substring(1, color.length) : color;
+      color = color.indexOf('#') >= 0 ? color.substring(1, color.length) : color;
       amount = parseInt((255 * amount) / 100);
 
-      return (color = `#${subtractLight(
-        color.substring(0, 2),
-        amount
-      )}${subtractLight(color.substring(2, 4), amount)}${subtractLight(
+      return (color = `#${subtractLight(color.substring(0, 2), amount)}${subtractLight(color.substring(2, 4), amount)}${subtractLight(
         color.substring(4, 6),
         amount
       )}`);
@@ -1582,7 +1497,7 @@ var KTUtil = (function () {
     },
 
     parseJson: function (value) {
-      if (typeof value === "string") {
+      if (typeof value === 'string') {
         value = value.replace(/'/g, '"');
 
         var jsonStr = value.replace(/(\w+:)|(\w+ :)/g, function (matched) {
@@ -1603,18 +1518,16 @@ var KTUtil = (function () {
 
       value = KTUtil.parseJson(value);
 
-      if (typeof value === "object") {
+      if (typeof value === 'object') {
         var resultKey;
         var resultBreakpoint = -1;
         var breakpoint;
 
         for (var key in value) {
-          if (key === "default") {
+          if (key === 'default') {
             breakpoint = 0;
           } else {
-            breakpoint = this.getBreakpoint(key)
-              ? this.getBreakpoint(key)
-              : parseInt(key);
+            breakpoint = this.getBreakpoint(key) ? this.getBreakpoint(key) : parseInt(key);
           }
 
           if (breakpoint <= width && breakpoint > resultBreakpoint) {
@@ -1643,11 +1556,11 @@ var KTUtil = (function () {
       var result = null;
       value = KTUtil.parseJson(value);
 
-      if (typeof value === "object") {
+      if (typeof value === 'object') {
         // Match condition
-        if (value["match"] !== undefined) {
-          var selector = Object.keys(value["match"])[0];
-          value = Object.values(value["match"])[0];
+        if (value['match'] !== undefined) {
+          var selector = Object.keys(value['match'])[0];
+          value = Object.values(value['match'])[0];
 
           if (document.querySelector(selector) !== null) {
             result = value;
@@ -1664,21 +1577,19 @@ var KTUtil = (function () {
       var value = KTUtil.parseJson(value);
       var result = KTUtil.getResponsiveValue(value);
 
-      if (result !== null && result["match"] !== undefined) {
+      if (result !== null && result['match'] !== undefined) {
         result = KTUtil.getSelectorMatchValue(result);
       }
 
-      if (result === null && value !== null && value["default"] !== undefined) {
-        result = value["default"];
+      if (result === null && value !== null && value['default'] !== undefined) {
+        result = value['default'];
       }
 
       return result;
     },
 
     getCssVariableValue: function (variableName) {
-      var hex = getComputedStyle(document.documentElement).getPropertyValue(
-        variableName
-      );
+      var hex = getComputedStyle(document.documentElement).getPropertyValue(variableName);
       if (hex && hex.length > 0) {
         hex = hex.trim();
       }
@@ -1692,24 +1603,16 @@ var KTUtil = (function () {
       return (
         rect.top >= 0 &&
         rect.left >= 0 &&
-        rect.bottom <=
-          (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <=
-          (window.innerWidth || document.documentElement.clientWidth)
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
       );
     },
 
     isPartiallyInViewport: function (element) {
       let x = element.getBoundingClientRect().left;
       let y = element.getBoundingClientRect().top;
-      let ww = Math.max(
-        document.documentElement.clientWidth,
-        window.innerWidth || 0
-      );
-      let hw = Math.max(
-        document.documentElement.clientHeight,
-        window.innerHeight || 0
-      );
+      let ww = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      let hw = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       let w = element.clientWidth;
       let h = element.clientHeight;
 
@@ -1717,8 +1620,8 @@ var KTUtil = (function () {
     },
 
     onDOMContentLoaded: function (callback) {
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", callback);
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', callback);
       } else {
         callback();
       }
