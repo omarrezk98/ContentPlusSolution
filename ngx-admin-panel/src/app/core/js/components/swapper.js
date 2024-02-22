@@ -1,4 +1,5 @@
 'use strict';
+import KTUtil from './util';
 
 var KTSwapperHandlersInitialized = false;
 
@@ -178,6 +179,8 @@ KTSwapper.init = function () {
 };
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = KTSwapper;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//   module.exports = KTSwapper;
+// }
+
+export default KTSwapper;

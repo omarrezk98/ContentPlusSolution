@@ -1,4 +1,5 @@
 'use strict';
+import KTUtil from './util';
 
 var KTStickyHandlersInitialized = false;
 
@@ -408,6 +409,8 @@ KTSticky.init = function () {
 };
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  module.exports = KTSticky;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//   module.exports = KTSticky;
+// }
+
+export default KTSticky;
