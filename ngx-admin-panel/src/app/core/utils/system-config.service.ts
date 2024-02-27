@@ -19,7 +19,6 @@ export class SystemConfigService {
           if (response != null) {
             this.sysConfig = response;
             this.sysConfig.domain = window.location.hostname;
-            if (this.sysConfig.domain == 'localhost' || this.sysConfig.domain.includes('healthy-plus')) this.sysConfig.domain = 'app.healthy-plus.net';
           }
           resolve(true);
         },

@@ -8,8 +8,13 @@
       <label class="form-label fs-6 fw-bolder text-dark">
         {{ 'Account.Email' | translate }}
       </label>
-      <input class="form-control form-control-lg form-control-solid" name="username" autocomplete="off" type="email"
-        formControlName="username" placeholder="{{ 'Account.Email' | translate }}"
+      <input
+        class="form-control form-control-lg form-control-solid"
+        name="username"
+        autocomplete="off"
+        type="email"
+        formControlName="username"
+        placeholder="{{ 'Account.Email' | translate }}"
         [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
       <ng-container *ngIf="submitted && f.username.errors">
         <div class="fv-plugins-message-container invalid-feedback" *ngIf="f.username.errors.required">
@@ -23,8 +28,13 @@
           {{ 'Account.Password' | translate }}
         </label>
       </div>
-      <input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off"
-        formControlName="password" placeholder="{{ 'Account.Password' | translate }}"
+      <input
+        class="form-control form-control-lg form-control-solid"
+        type="password"
+        name="password"
+        autocomplete="off"
+        formControlName="password"
+        placeholder="{{ 'Account.Password' | translate }}"
         [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
       <ng-container *ngIf="submitted && f.password.errors">
         <div class="fv-plugins-message-container invalid-feedback" *ngIf="f.password.errors.required">
@@ -34,8 +44,7 @@
     </div>
     <div class="pb-lg-0 pb-5 text-center">
       <button type="submit" id="kt_login_signin_submit" class="btn btn-lg btn-success w-100 mb-5" [disabled]="loading">
-        <div class="spinner-border text-white h-20px w-20px" role="status" *ngIf="loading">
-        </div>
+        <div class="spinner-border text-white h-20px w-20px" role="status" *ngIf="loading"></div>
         <span class="fs-4 mx-2 fw-bold">{{ 'Account.SignIn' | translate }}</span>
       </button>
     </div>

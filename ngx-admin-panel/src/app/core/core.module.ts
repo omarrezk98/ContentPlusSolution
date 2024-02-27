@@ -12,12 +12,13 @@ import { RouterModule } from '@angular/router';
 import { FixedService } from './utils/fixed.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { Interceptor } from './utils/interceptor.service';
+import { ToastrModule } from 'ngx-toastr';
 
 const fixed = new FixedService();
 
 @NgModule({
   declarations: [FullLayoutComponent, SimpleLayoutComponent, HeaderComponent, FooterComponent, AsideComponent, ScrolltopComponent],
-  imports: [CommonModule, RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, TranslateModule],
+  imports: [CommonModule, RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, TranslateModule, ToastrModule.forRoot()],
   exports: [RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, FullLayoutComponent, SimpleLayoutComponent, TranslateModule],
   providers: [
     { provide: FixedService, useValue: fixed },

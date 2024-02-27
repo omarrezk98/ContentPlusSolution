@@ -6,10 +6,6 @@ import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    //CoreModule.forRoot()
-  ],
+  imports: [CommonModule, HomeRoutingModule, CoreModule.forRoot()],
 })
 export class HomeModule {}

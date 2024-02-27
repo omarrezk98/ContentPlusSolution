@@ -9,7 +9,13 @@ import { FixedService } from 'src/app/core/utils/fixed.service';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
-  constructor(public fixed: FixedService, private storageMap: StorageMap, private http: HttpClient, private cookieSer: CookieService, private router: Router) {}
+  constructor(
+    public fixed: FixedService,
+    private storageMap: StorageMap,
+    private http: HttpClient,
+    private cookieSer: CookieService,
+    private router: Router
+  ) {}
   obtainAccessToken(loginData): Observable<any> {
     return this.http.post('token', loginData);
   }

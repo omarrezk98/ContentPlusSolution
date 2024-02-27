@@ -7,7 +7,10 @@ import { SystemConfigService } from './core/utils/system-config.service';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(public fixed: FixedService, private configSer: SystemConfigService) {
+  constructor(
+    public fixed: FixedService,
+    private configSer: SystemConfigService
+  ) {
     this.fixed.sysConfig = this.configSer.getSystemConfig();
   }
 }
