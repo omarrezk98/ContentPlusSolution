@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
+import { SystemConfigModel } from '../models/system-config.model';
 
 @Injectable()
 export class FixedService {
   public activeLang: any = {};
   public appLanguages: any = [];
   public deleteSwalConfig: any = {};
+  public allowAnonymous = ['token', 'Token/Refresh'];
+  public sysConfig = new SystemConfigModel();
+  public tokenRequestSent = false;
+  public requestWithoutLoader = [];
+  public subheader;
 
   constructor() {
     this.initialAppLang();

@@ -6,11 +6,12 @@ import { HeaderComponent } from './theme/header/header.component';
 import { FooterComponent } from './theme/footer/footer.component';
 import { AsideComponent } from './theme/aside/aside.component';
 import { ScrolltopComponent } from './theme/scrolltop/scrolltop.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FixedService } from './utils/fixed.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { Interceptor } from './utils/interceptor.service';
 
 const fixed = new FixedService();
 
@@ -18,7 +19,14 @@ const fixed = new FixedService();
   declarations: [FullLayoutComponent, SimpleLayoutComponent, HeaderComponent, FooterComponent, AsideComponent, ScrolltopComponent],
   imports: [CommonModule, RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, TranslateModule],
   exports: [RouterModule, FormsModule, HttpClientModule, ReactiveFormsModule, FullLayoutComponent, SimpleLayoutComponent, TranslateModule],
-  providers: [{ provide: FixedService, useValue: fixed }],
+  providers: [
+    { provide: FixedService, useValue: fixed },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true,
+    },
+  ],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {
