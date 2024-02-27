@@ -1,5 +1,5 @@
 {
   "production": false,
-  "domain": "localhost:44374",
-  "serverUrl": "https://localhost:44374/"
+  "domain": "localhost:9153",
+  "serverUrl": "http://localhost:9153/"
 }
