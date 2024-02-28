@@ -9,6 +9,11 @@ import KTDialer from '../../js/components/dialer';
 import KTSwapper from '../../js/components/swapper';
 import KTToggle from '../../js/components/toggle';
 import KTThemeMode from '../../js/layout/theme-mode';
+import { StorageMap } from '@ngx-pwa/local-storage';
+import { forkJoin } from 'rxjs';
+import { CookieEnum } from '../../enums/cookie.enum';
+import { FixedService } from '../../utils/fixed.service';
+import { GlobalService } from '../../utils/global.service';
 
 @Component({
   selector: 'app-full-layout',
@@ -16,6 +21,19 @@ import KTThemeMode from '../../js/layout/theme-mode';
 })
 export class FullLayoutComponent implements AfterViewInit {
   jsLoaded = false;
+
+  constructor(
+    public global: GlobalService,
+    public fixed: FixedService,
+    private storageMap: StorageMap
+  ) {}
+
+  loadMainData() {
+    forkJoin([this.storageMap.get(CookieEnum.AdminProfile)]).subscribe((results: any) => {
+      this.fixed.userProfile = results[0];
+      this.global.mainDataLoaded.next(true);
+    });
+  }
 
   ngAfterViewInit(): void {
     if (!this.jsLoaded) {

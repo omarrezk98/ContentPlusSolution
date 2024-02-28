@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({ providedIn: 'root' })
 export class GlobalService {
   appLangChanged: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  mainDataLoaded: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   toastrOptions: any;
 
   constructor(

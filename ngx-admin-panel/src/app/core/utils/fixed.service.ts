@@ -3,6 +3,7 @@ import { SystemConfigModel } from '../models/system-config.model';
 
 @Injectable()
 export class FixedService {
+  public userProfile: any = {};
   public activeLang: any = {};
   public appLanguages: any = [];
   public deleteSwalConfig: any = {};

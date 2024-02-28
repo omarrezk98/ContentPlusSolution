@@ -48,6 +48,7 @@ export class LoginComponent {
   }
 
   onLoginSubmit() {
+    debugger;
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
