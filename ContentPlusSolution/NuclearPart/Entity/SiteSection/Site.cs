@@ -2,15 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using Entity.AdminSection;
 using Entity.MangerSection;
+using Entity.ContentSection;
 
 namespace Entity.SiteSection
 {
     public class Site : BasicMangerTable
     {
-        public Site()
-        {
-            Admin = new HashSet<Admin>();
-        }
         public int SiteId { get; set; }
         [StringLength(250)]
         public string Name { get; set; } = default!;
@@ -31,6 +28,10 @@ namespace Entity.SiteSection
 
         [ForeignKey("DeactivateId")]
         public virtual Manger Deactivate { get; set; } = default!;
-        public virtual ICollection<Admin> Admin { get; set; }
+        public virtual ICollection<Admin> Admin { get; set; } = [];
+        #region ContentSection
+        public virtual ICollection<Content> Content { get; set; } = [];
+        public virtual ICollection<SitePage> SitePage { get; set; } = [];
+        #endregion
     }
 }

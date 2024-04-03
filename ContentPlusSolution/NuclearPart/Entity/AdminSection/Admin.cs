@@ -1,4 +1,5 @@
 ﻿using Core.Enums;
+using Entity.ContentSection;
 using Entity.SiteSection;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,9 +11,6 @@ namespace Entity.AdminSection
         public Admin()
         {
             Id = Guid.NewGuid().ToString();
-            #region AdminSection
-            AdminRefreshToken = new HashSet<AdminRefreshToken>(); 
-            #endregion
         }
 
         public string Name { get; set; } = default!;
@@ -28,6 +26,11 @@ namespace Entity.AdminSection
         public int SiteId { get; set; }
 
         public virtual Site Site { get; set; } = default!;
-        public virtual ICollection<AdminRefreshToken> AdminRefreshToken { get; set; }
+        public virtual ICollection<AdminRefreshToken> AdminRefreshToken { get; set; } = [];
+
+        #region ContentSection
+        public virtual ICollection<Content> Content { get; set; } = [];
+        public virtual ICollection<Content> Content1 { get; set; } = [];
+        #endregion
     }
 }

@@ -12,6 +12,16 @@
 
   <ItemGroup>
     <Folder Include="Shared\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Model\" />
+    <Folder Include="Model\SiteSection\" />
+    <Folder Include="Model\SiteSection\SiteConfiguration\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Interface\" />
+    <None Remove="Model\" />
+    <None Remove="Model\SiteSection\" />
+    <None Remove="Model\SiteSection\SiteConfiguration\" />
+  </ItemGroup>
 </Project>

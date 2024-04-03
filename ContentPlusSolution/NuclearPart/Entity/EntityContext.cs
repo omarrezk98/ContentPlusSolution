@@ -1,4 +1,5 @@
 ﻿using Entity.AdminSection;
+using Entity.ContentSection;
 using Entity.MangerSection;
 using Entity.SiteSection;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,8 @@ namespace Entity
             MangerSectionRelation.Apply(modelBuilder);
             AdminSectionRelation.Apply(modelBuilder);
             SiteSectionRelation.Apply(modelBuilder);
+            ContentSectionRelation.Apply(modelBuilder);
+            HasIndexRelation.Apply(modelBuilder);
         }
 
         #region MangerSection
@@ -32,11 +35,16 @@ namespace Entity
 
         #region SiteSection
         public DbSet<Site> Sites { get; set; } = default!;
+        public DbSet<SitePage> SitePages { get; set; } = default!;
         #endregion
 
         #region AdminSection
         public DbSet<Admin> Admins { get; set; } = default!;
         public DbSet<AdminRefreshToken> AdminRefreshTokens { get; set; } = default!;
+        #endregion
+
+        #region ContentSection
+        public DbSet<Content> Contents { get; set; } = default!;
         #endregion
 
     }
