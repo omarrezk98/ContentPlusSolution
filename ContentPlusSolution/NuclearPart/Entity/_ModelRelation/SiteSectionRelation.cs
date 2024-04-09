@@ -20,6 +20,16 @@ namespace Entity
             modelBuilder.Entity<Site>().HasMany(u => u.SiteLanguage).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Site>().HasMany(u => u.SitePageLanguage).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
             #endregion
+            #region DynamicFormSection
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicForm).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormData).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormElement).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormElementData).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormElementLanguage).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormElementOption).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormElementOptionLanguage).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Site>().HasMany(u => u.DynamicFormLanguage).WithOne(u => u.Site).OnDelete(DeleteBehavior.Restrict);
+            #endregion
         }
     }
 }

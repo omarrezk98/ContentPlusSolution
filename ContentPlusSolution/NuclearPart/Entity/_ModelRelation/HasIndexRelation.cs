@@ -1,4 +1,5 @@
 ﻿using Entity.ContentSection;
+using Entity.DynamicFormSection;
 using Entity.SiteSection;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,11 @@ namespace Entity
             modelBuilder.Entity<ContentCategory>().HasIndex(u => new { u.SiteId, u.Code }).IsUnique();
             modelBuilder.Entity<ContentCategoryLanguage>().HasIndex(u => new { u.SiteId, u.Code }).IsUnique();
             modelBuilder.Entity<ContentCategoryLanguage>().HasIndex(u => new { u.ContentCategoryId, u.LanguageId }).IsUnique();
+            #endregion
+            #region DynamicFormSection
+            modelBuilder.Entity<DynamicForm>().HasIndex(u => new { u.SiteId, u.Code }).IsUnique();
+            modelBuilder.Entity<DynamicFormLanguage>().HasIndex(u => new { u.SiteId, u.Code }).IsUnique();
+            modelBuilder.Entity<DynamicFormLanguage>().HasIndex(u => new { u.DynamicFormId, u.LanguageId }).IsUnique();
             #endregion
         }
     }

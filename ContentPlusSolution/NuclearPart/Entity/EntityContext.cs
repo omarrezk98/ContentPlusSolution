@@ -1,5 +1,6 @@
 ﻿using Entity.AdminSection;
 using Entity.ContentSection;
+using Entity.DynamicFormSection;
 using Entity.MangerSection;
 using Entity.SiteSection;
 using Microsoft.EntityFrameworkCore;
@@ -51,6 +52,17 @@ namespace Entity
         public DbSet<ContentLanguage> ContentLanguages { get; set; } = default!;
         public DbSet<ContentCategory> ContentCategories { get; set; } = default!;
         public DbSet<ContentCategoryLanguage> ContentCategoryLanguages { get; set; } = default!;
+        #endregion
+
+        #region DynamicFormSection
+        public DbSet<DynamicForm> DynamicForms { get; set; } = default!;
+        public DbSet<DynamicFormData> DynamicFormDatas { get; set; } = default!;
+        public DbSet<DynamicFormElement> DynamicFormElements { get; set; } = default!;
+        public DbSet<DynamicFormElementData> DynamicFormElementDatas { get; set; } = default!;
+        public DbSet<DynamicFormElementLanguage> DynamicFormElementLanguages { get; set; } = default!;
+        public DbSet<DynamicFormElementOption> DynamicFormElementOptions { get; set; } = default!;
+        public DbSet<DynamicFormElementOptionLanguage> DynamicFormElementOptionLanguages { get; set; } = default!;
+        public DbSet<DynamicFormLanguage> DynamicFormLanguages { get; set; } = default!;
         #endregion
 
     }

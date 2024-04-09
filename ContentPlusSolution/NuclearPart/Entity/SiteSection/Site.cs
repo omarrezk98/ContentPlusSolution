@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Entity.AdminSection;
 using Entity.MangerSection;
 using Entity.ContentSection;
+using Entity.DynamicFormSection;
 
 namespace Entity.SiteSection
 {
@@ -43,6 +44,16 @@ namespace Entity.SiteSection
         public virtual ICollection<ContentLanguage> ContentLanguage { get; set; } = [];
         public virtual ICollection<ContentCategory> ContentCategory { get; set; } = [];
         public virtual ICollection<ContentCategoryLanguage> ContentCategoryLanguage { get; set; } = [];
+        #endregion
+        #region DynamicFormSection
+        public virtual ICollection<DynamicForm> DynamicForm { get; set; } = [];
+        public virtual ICollection<DynamicFormData> DynamicFormData { get; set; } = [];
+        public virtual ICollection<DynamicFormElement> DynamicFormElement { get; set; } = [];
+        public virtual ICollection<DynamicFormElementData> DynamicFormElementData { get; set; } = [];
+        public virtual ICollection<DynamicFormElementLanguage> DynamicFormElementLanguage { get; set; } = [];
+        public virtual ICollection<DynamicFormElementOption> DynamicFormElementOption { get; set; } = [];
+        public virtual ICollection<DynamicFormElementOptionLanguage> DynamicFormElementOptionLanguage { get; set; } = [];
+        public virtual ICollection<DynamicFormLanguage> DynamicFormLanguage { get; set; } = [];
         #endregion
     }
 }
