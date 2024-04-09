@@ -21,11 +21,10 @@ namespace AdminService.AdminSection
         Task<int> RemoveRefreshToken(string? token);
         Task<bool> ChangePassword(ChangePassword model, string userId);
     }
-    public class AdminUserService : BaseService, IAdminUserService
+    public class AdminUserService(EntityContext db, IMapper mapper, IMongoDatabaseSettings mongoDBSettings, IMongoClient mongoClient) 
+        : BaseService(db, mapper, mongoDBSettings, mongoClient)
+        , IAdminUserService
     {
-        public AdminUserService(EntityContext db, IMapper mapper, IMongoDatabaseSettings mongoDBSettings, IMongoClient mongoClient)
-            : base(db, mapper, mongoDBSettings, mongoClient) { }
-
         public async Task<AdminRefreshToken?> GetRefreshToken(string token)
         {
             if (string.IsNullOrWhiteSpace(token)) return null;
@@ -84,7 +83,7 @@ namespace AdminService.AdminSection
             {
                 Admin? user = await db.Admins.Where(s => s.Id == userId).FirstOrDefaultAsync();
                 if (user == null) return false;
-                if (IdentityHelper.VerifyHashedPassword(user.PasswordHash, model.OldPassword))
+                if (IdentityHelper.VerifyHashedPassword(user.PasswordHash!, model.OldPassword))
                 {
                     user.PasswordHash = IdentityHelper.HashPassword(model.NewPassword);
                     var loginList = db.AdminRefreshTokens.Where(s => s.Id == userId).ToList();

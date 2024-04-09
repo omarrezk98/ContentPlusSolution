@@ -35,7 +35,10 @@ namespace Entity
 
         #region SiteSection
         public DbSet<Site> Sites { get; set; } = default!;
+        public DbSet<SiteConfiguration> SiteConfigurations { get; set; } = default!;
+        public DbSet<SiteLanguage> SiteLanguages { get; set; } = default!;
         public DbSet<SitePage> SitePages { get; set; } = default!;
+        public DbSet<SitePageLanguage> SitePageLanguages { get; set; } = default!;
         #endregion
 
         #region AdminSection
@@ -45,6 +48,9 @@ namespace Entity
 
         #region ContentSection
         public DbSet<Content> Contents { get; set; } = default!;
+        public DbSet<ContentLanguage> ContentLanguages { get; set; } = default!;
+        public DbSet<ContentCategory> ContentCategories { get; set; } = default!;
+        public DbSet<ContentCategoryLanguage> ContentCategoryLanguages { get; set; } = default!;
         #endregion
 
     }

@@ -27,6 +27,10 @@ namespace Entity.MangerSection
         public virtual ICollection<Site> Site2 { get; set; } = [];
         public virtual ICollection<SitePage> SitePage { get; set; } = [];
         public virtual ICollection<SitePage> SitePage1 { get; set; } = [];
+        public virtual ICollection<SiteConfiguration> SiteConfiguration { get; set; } = [];
+        public virtual ICollection<SiteConfiguration> SiteConfiguration1 { get; set; } = [];
+        public virtual ICollection<SitePageLanguage> SitePageLanguage { get; set; } = [];
+        public virtual ICollection<SitePageLanguage> SitePageLanguage1 { get; set; } = [];
         #endregion
 
         #region MangerSection

@@ -28,10 +28,21 @@ namespace Entity.SiteSection
 
         [ForeignKey("DeactivateId")]
         public virtual Manger Deactivate { get; set; } = default!;
+        
+        #region AdminSection
         public virtual ICollection<Admin> Admin { get; set; } = [];
+        #endregion
+        #region SiteSection
+        public virtual ICollection<SitePage> SitePage { get; set; } = [];
+        public virtual ICollection<SiteLanguage> SiteLanguage { get; set; } = [];
+        public virtual ICollection<SiteConfiguration> SiteConfiguration { get; set; } = [];
+        public virtual ICollection<SitePageLanguage> SitePageLanguage { get; set; } = [];
+        #endregion
         #region ContentSection
         public virtual ICollection<Content> Content { get; set; } = [];
-        public virtual ICollection<SitePage> SitePage { get; set; } = [];
+        public virtual ICollection<ContentLanguage> ContentLanguage { get; set; } = [];
+        public virtual ICollection<ContentCategory> ContentCategory { get; set; } = [];
+        public virtual ICollection<ContentCategoryLanguage> ContentCategoryLanguage { get; set; } = [];
         #endregion
     }
 }

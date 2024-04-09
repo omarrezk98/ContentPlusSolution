@@ -19,11 +19,10 @@ namespace MangerService.MangerSection
         Task<int> RemoveRefreshToken(string? token);
         Task<bool> ChangePassword(ChangePassword model, string userId);
     }
-    public class MangerService : BaseService, IMangerService
+    public class MangerService(EntityContext db, IMapper mapper, IMongoDatabaseSettings mongoDBSettings, IMongoClient mongoClient) 
+        : BaseService(db, mapper, mongoDBSettings, mongoClient)
+        , IMangerService
     {
-        public MangerService(EntityContext db, IMapper mapper, IMongoDatabaseSettings mongoDBSettings, IMongoClient mongoClient)
-            : base(db, mapper, mongoDBSettings, mongoClient) { }
-
         public async Task<IsValidUserModel> IsValidUser(string username, string password)
         {
             var validUser = new IsValidUserModel();
@@ -81,7 +80,7 @@ namespace MangerService.MangerSection
             {
                 Manger? user = await db.Mangers.Where(s => s.Id == userId).FirstOrDefaultAsync();
                 if (user == null) return false;
-                if (IdentityHelper.VerifyHashedPassword(user.PasswordHash, model.OldPassword))
+                if (IdentityHelper.VerifyHashedPassword(user.PasswordHash!, model.OldPassword))
                 {
                     user.PasswordHash = IdentityHelper.HashPassword(model.NewPassword);
                     var loginList = db.MangerRefreshTokens.Where(s => s.Id == userId).ToList();

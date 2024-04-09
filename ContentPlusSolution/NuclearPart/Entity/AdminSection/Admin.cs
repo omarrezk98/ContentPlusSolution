@@ -31,6 +31,12 @@ namespace Entity.AdminSection
         #region ContentSection
         public virtual ICollection<Content> Content { get; set; } = [];
         public virtual ICollection<Content> Content1 { get; set; } = [];
+        public virtual ICollection<ContentLanguage> ContentLanguage { get; set; } = [];
+        public virtual ICollection<ContentLanguage> ContentLanguage1 { get; set; } = [];
+        public virtual ICollection<ContentCategory> ContentCategory { get; set; } = [];
+        public virtual ICollection<ContentCategory> ContentCategory1 { get; set; } = [];
+        public virtual ICollection<ContentCategoryLanguage> ContentCategoryLanguage { get; set; } = [];
+        public virtual ICollection<ContentCategoryLanguage> ContentCategoryLanguage1 { get; set; } = [];
         #endregion
     }
 }

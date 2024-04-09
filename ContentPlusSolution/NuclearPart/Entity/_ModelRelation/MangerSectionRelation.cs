@@ -14,6 +14,10 @@ namespace Entity
             modelBuilder.Entity<Manger>().HasMany(u => u.Site2).WithOne(u => u.Deactivate).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Manger>().HasMany(u => u.SitePage).WithOne(u => u.Created).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Manger>().HasMany(u => u.SitePage1).WithOne(u => u.Modified).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Manger>().HasMany(u => u.SiteConfiguration).WithOne(u => u.Created).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Manger>().HasMany(u => u.SiteConfiguration1).WithOne(u => u.Modified).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Manger>().HasMany(u => u.SitePageLanguage).WithOne(u => u.Created).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Manger>().HasMany(u => u.SitePageLanguage1).WithOne(u => u.Modified).OnDelete(DeleteBehavior.Restrict);
             #endregion
         }
     }

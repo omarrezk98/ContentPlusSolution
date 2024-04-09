@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\IIS\ContentPlusSolution\AdminServer</_PublishTargetUrl>
+    <History>True|2024-04-04T08:48:02.9849930Z;True|2024-04-04T10:43:22.9488171+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
