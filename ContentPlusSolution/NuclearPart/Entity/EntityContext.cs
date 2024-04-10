@@ -3,6 +3,7 @@ using Entity.ContentSection;
 using Entity.DynamicFormSection;
 using Entity.MangerSection;
 using Entity.SiteSection;
+using Entity.VisitorSection;
 using Microsoft.EntityFrameworkCore;
 
 namespace Entity
@@ -27,6 +28,8 @@ namespace Entity
             SiteSectionRelation.Apply(modelBuilder);
             ContentSectionRelation.Apply(modelBuilder);
             HasIndexRelation.Apply(modelBuilder);
+            DynamicFormSectionRelation.Apply(modelBuilder);
+            VisitorSectionRelation.Apply(modelBuilder);
         }
 
         #region MangerSection
@@ -63,6 +66,11 @@ namespace Entity
         public DbSet<DynamicFormElementOption> DynamicFormElementOptions { get; set; } = default!;
         public DbSet<DynamicFormElementOptionLanguage> DynamicFormElementOptionLanguages { get; set; } = default!;
         public DbSet<DynamicFormLanguage> DynamicFormLanguages { get; set; } = default!;
+        #endregion
+
+        #region VisitorSection
+        public DbSet<Visitor> Visitors { get; set; } = default!;
+        public DbSet<VisitorRefreshToken> VisitorRefreshTokens { get; set; } = default!;
         #endregion
 
     }

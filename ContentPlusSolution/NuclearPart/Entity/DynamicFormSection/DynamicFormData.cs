@@ -5,7 +5,7 @@ namespace Entity.DynamicFormSection
     public class DynamicFormData
     {
         public int DynamicFormDataId { get; set; }
-        public string DynamicFormDataKey { get; set; } = default!;
+        public string Code { get; set; } = default!;
         public int SiteId { get; set; }
         public int DynamicFormId { get; set; }
         public string? FirstName { get; set; }

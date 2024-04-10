@@ -1,7 +1,7 @@
 ﻿using Entity.DynamicFormSection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity._ModelRelation
+namespace Entity
 {
     internal static class DynamicFormSectionRelation
     {
