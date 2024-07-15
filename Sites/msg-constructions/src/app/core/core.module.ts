@@ -5,11 +5,34 @@ import { FooterComponent } from './theme/footer/footer.component';
 import { LayoutComponent } from './theme/layout/layout.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SliderComponent } from './theme/slider/slider.component';
+import { AboutUsComponent } from './theme/about-us/about-us.component';
+import { ProductsComponent } from './theme/products/products.component';
+import { ServicseComponent } from './theme/servicse/servicse.component';
+import { CartComponent } from './theme/cart/cart.component';
+import { ProductCardComponent } from './theme/product-card/product-card.component';
+import { CartService } from './theme/cart/cart.service';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, LayoutComponent, SliderComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    LayoutComponent,
+    SliderComponent,
+    AboutUsComponent,
+    ProductsComponent,
+    ServicseComponent,
+    CartComponent,
+    ProductCardComponent,
+  ],
   imports: [CommonModule, TranslateModule],
-  exports: [HeaderComponent, FooterComponent, LayoutComponent, TranslateModule],
+  exports: [
+    HeaderComponent,
+    CartComponent,
+    FooterComponent,
+    LayoutComponent,
+    TranslateModule,
+  ],
+  providers: [CartService],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {
