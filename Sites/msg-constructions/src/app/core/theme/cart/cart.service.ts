@@ -11,9 +11,7 @@ export class CartService {
   }
 
   addToCart(product: any) {
-    const existingProduct = this.cartItems.find(
-      (item) => item.name === product.name
-    );
+    const existingProduct = this.cartItems.find(item => item.name === product.name);
     if (existingProduct) {
       existingProduct.quantity += 1;
     } else {
@@ -28,9 +26,7 @@ export class CartService {
   }
 
   updateQuantity(product: any, quantity: number) {
-    const existingProduct = this.cartItems.find(
-      (item) => item.name === product.name
-    );
+    const existingProduct = this.cartItems.find(item => item.name === product.name);
     if (existingProduct) {
       existingProduct.quantity = quantity;
       this.saveCartToLocalStorage();
