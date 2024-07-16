@@ -1,5 +1,6 @@
 "use strict";
-
+import KTUtil from "../components/util";
+import KTEventHandler from "../components/event-handler";
 // Class definition
 var KTThemeMode = function () {
 	var menu;
@@ -166,6 +167,8 @@ KTUtil.onDOMContentLoaded(function () {
 });
 
 // Declare KTThemeMode for Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTThemeMode;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTThemeMode;
+// }
+
+export default KTThemeMode;
