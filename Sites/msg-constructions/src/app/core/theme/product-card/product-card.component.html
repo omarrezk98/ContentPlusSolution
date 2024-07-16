@@ -1,9 +1,5 @@
 <div class="row">
-  <div
-    class="col-lg-3"
-    *ngFor="let product of products"
-    (click)="onCardClick(product)"
-  >
+  <div class="col-lg-3" *ngFor="let product of products" (click)="onCardClick(product)">
     <div class="card our-team-1 hover-animation-1">
       <div class="profile-image scale-in-center">
         <img [src]="product.image" alt="" />

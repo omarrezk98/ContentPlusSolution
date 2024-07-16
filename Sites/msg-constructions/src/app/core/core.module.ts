@@ -25,13 +25,7 @@ import { CartService } from './theme/cart/cart.service';
     ProductCardComponent,
   ],
   imports: [CommonModule, TranslateModule],
-  exports: [
-    HeaderComponent,
-    CartComponent,
-    FooterComponent,
-    LayoutComponent,
-    TranslateModule,
-  ],
+  exports: [HeaderComponent, CartComponent, FooterComponent, LayoutComponent, TranslateModule],
   providers: [CartService],
 })
 export class CoreModule {
