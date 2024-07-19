@@ -23,6 +23,19 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: '',
+    component: SimpleLayoutComponent,
+    data: {
+      title: 'login',
+    },
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
+      },
+    ],
+  },
 ];
 
 @NgModule({
