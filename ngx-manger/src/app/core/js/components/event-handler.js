@@ -1,4 +1,5 @@
 "use strict";
+import KTUtil from "./util";
 
 // Class definition
 var KTEventHandler = function() {
@@ -116,6 +117,8 @@ var KTEventHandler = function() {
 }();
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTEventHandler;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTEventHandler;
+// }
+
+export default KTEventHandler;

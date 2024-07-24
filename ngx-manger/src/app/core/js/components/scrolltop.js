@@ -1,4 +1,5 @@
 "use strict";
+import KTUtil from "../components/util";
 
 // Class definition
 var KTScrolltop = function(element, options) {
@@ -159,6 +160,7 @@ KTScrolltop.init = function() {
 };
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTScrolltop;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTScrolltop;
+// }
+export default KTScrolltop;

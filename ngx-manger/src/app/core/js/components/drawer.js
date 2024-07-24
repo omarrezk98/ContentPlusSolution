@@ -1,4 +1,6 @@
 "use strict";
+import KTUtil from "../components/util";
+import KTEventHandler from './event-handler';
 
 var KTDrawerHandlersInitialized = false; 
 
@@ -455,6 +457,8 @@ KTDrawer.init = function() {
 };
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTDrawer;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTDrawer;
+// }
+
+export default KTDrawer;

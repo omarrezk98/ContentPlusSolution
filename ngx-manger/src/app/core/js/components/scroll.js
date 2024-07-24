@@ -1,4 +1,5 @@
 "use strict";
+import KTUtil from "../components/util";
 
 var KTScrollHandlersInitialized = false;
 
@@ -351,6 +352,7 @@ KTScroll.init = function() {
 };
 
 // Webpack Support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTScroll;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTScroll;
+// }
+export default KTScroll;

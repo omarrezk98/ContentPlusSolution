@@ -1581,6 +1581,8 @@ var KTUtil = function() {
 }();
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTUtil;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTUtil;
+// }
+
+export default KTUtil;

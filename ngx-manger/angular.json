@@ -48,13 +48,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "10mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "60kb",
+                  "maximumError": "100kb"
                 }
               ],
               "outputHashing": "all"
@@ -74,7 +74,8 @@
               "buildTarget": "ngx-manger:build:production"
             },
             "development": {
-              "buildTarget": "ngx-manger:build:development"
+              "buildTarget": "ngx-manger:build:development",
+              "port": 1057
             }
           },
           "defaultConfiguration": "development"

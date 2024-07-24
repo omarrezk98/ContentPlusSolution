@@ -1,4 +1,7 @@
 "use strict";
+import KTUtil from './util';
+import KTEventHandler from './event-handler';
+import { createPopper } from '@popperjs/core';
 
 var KTMenuHandlersInitialized = false;
 
@@ -570,7 +573,7 @@ var KTMenu = function(element, options) {
             reference = item;
         }
 
-        var popper = Popper.createPopper(reference, sub, _getDropdownPopperConfig(item)); 
+        var popper = createPopper(reference, sub, _getDropdownPopperConfig(item)); 
         KTUtil.data(item).set('popper', popper);
     }
 
@@ -1125,6 +1128,8 @@ KTMenu.init = function() {
 };
 
 // Webpack support
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-    module.exports = KTMenu;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//     module.exports = KTMenu;
+// }
+
+export default KTMenu;
