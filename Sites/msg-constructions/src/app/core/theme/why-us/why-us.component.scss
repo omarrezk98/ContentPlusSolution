@@ -6,9 +6,11 @@
     width: 100%;
     z-index: 1000;
 }
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+.banner-title-outer{
+    margin-top: 60px;
+}
+a img{
+    height: 600px;
 }
 strong{
     color: brown;

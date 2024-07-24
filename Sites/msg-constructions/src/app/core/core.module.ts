@@ -11,6 +11,7 @@ import { ServicseComponent } from './theme/servicse/servicse.component';
 import { CartComponent } from './theme/cart/cart.component';
 import { ProductCardComponent } from './theme/product-card/product-card.component';
 import { CartService } from './theme/cart/cart.service';
+import { WhyUsComponent } from './theme/why-us/why-us.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CartService } from './theme/cart/cart.service';
     ServicseComponent,
     CartComponent,
     ProductCardComponent,
+    WhyUsComponent,
   ],
   imports: [CommonModule, TranslateModule],
   exports: [HeaderComponent, CartComponent, FooterComponent, LayoutComponent, TranslateModule],

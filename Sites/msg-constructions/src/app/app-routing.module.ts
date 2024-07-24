@@ -5,6 +5,7 @@ import { AboutUsComponent } from './core/theme/about-us/about-us.component';
 import { ProductsComponent } from './core/theme/products/products.component';
 import { ServicseComponent } from './core/theme/servicse/servicse.component';
 import { CartComponent } from './core/theme/cart/cart.component';
+import { WhyUsComponent } from './core/theme/why-us/why-us.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'Products', component: ProductsComponent },
   { path: 'services', component: ServicseComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'why-us', component: WhyUsComponent },
 ];
 
 @NgModule({

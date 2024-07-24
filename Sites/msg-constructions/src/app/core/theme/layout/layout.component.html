@@ -1,12 +1,29 @@
 <div class="page-wraper">
   <!-- HEADER START -->
+   <div class="header">
   <app-header></app-header>
+  </div>
   <!-- HEADER END -->
 
   <!-- CONTENT START -->
   <div class="page-content">
     <!-- SLIDER START -->
     <app-slider></app-slider>
+<div class="video-section-full bg-no-repeat bg-cover overlay-wraper" style="background-image: url(assets/images/video-bg.jpg)">
+    <div class="overlay-main bg-black opacity-07"></div>
+    <div class="video-section-inner">
+        <div class="video-section-content text-center">
+            <div class="video-section-right">
+                <iframe
+                    src="https://player.vimeo.com/video/34741214?autoplay=1&color=ffffff&title=0&byline=0&portrait=0"
+                    frameborder="0"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- OUR SPECIALLIZATION START -->
     <div
@@ -79,7 +96,7 @@
         </div>
       </div>
       <div class="hilite-title text-dengar p-r50 text-uppercase text-pop-up-top">
-        <strong class="text-danger">Welcome</strong>
+        <strong >Welcome</strong>
       </div>
     </div>
     <!-- OUR SPECIALLIZATION END -->
@@ -421,7 +438,7 @@
         </div>
       </div>
       <div class="hilite-title text-left p-l50 text-dengar text-pop-up-top">
-        <strong class="text-danger">Mission</strong>
+        <strong >Mission</strong>
       </div>
     </div>
     <!-- OUR MISSION  END -->
@@ -525,7 +542,7 @@
         </div>
       </div>
       <div class="hilite-title text-left p-l50 text-dengar text-pop-up-top">
-        <strong class="text-danger">Services</strong>
+        <strong >Services</strong>
       </div>
     </div>
     <!-- OUR SERVICES  END -->
@@ -542,10 +559,16 @@
           <div class="section-head">
             <div class="mt-separator-outer separator-center">
               <div class="mt-separator">
-                <h2 class="text-uppercase text-danger sep-line-one">
-                  <span class="font-weight-300 site-text-primary text-danger">Ready</span>
-                  Mix concrete
-                </h2>
+               <div class="section-head">
+      <div class="mt-separator-outer separator-center">
+        <div class="mt-separator">
+          <h2 class="text-danger text-uppercase sep-line-one">
+            <span class="font-weight-300 site-text-primary text-danger">Ready </span>
+            Mixed Concrete
+          </h2>
+        </div>
+      </div>
+    </div>
                 <p class="fs-5 mt-4">
                   MSG Factory for Ready-mix concrete is characterized by its ability to provide services to contractors in various construction work and at all
                   times relying on an experienced, highly qualified and efficient team as well as its commitment to provide products with the highest quality
@@ -604,7 +627,7 @@
         </div>
       </div>
       <div class="hilite-title text-left p-l50 text-dengar text-pop-up-top">
-        <strong class="text-danger"> Mix concrete</strong>
+        <strong > Mix concrete</strong>
       </div>
     </div>
 
@@ -617,10 +640,16 @@
           <div class="section-head">
             <div class="mt-separator-outer separator-center">
               <div class="mt-separator">
-                <h2 class="text-uppercase text-danger sep-line-one">
-                  <span class="font-weight-300 site-text-primary text-danger"> Crusher</span>
-                  Material
-                </h2>
+                  <div class="section-head">
+      <div class="mt-separator-outer separator-center">
+        <div class="mt-separator">
+          <h2 class="text-danger text-uppercase sep-line-one">
+            <span class="font-weight-300 site-text-primary text-danger">Crusher  </span>
+            Material
+          </h2>
+        </div>
+      </div>
+    </div>
                 <p class="fs-5 mt-4">
                   Based on the remarkable evolution of our organization, we want to deepen our roots in the field of construction and its basics. The idea of
                   establishing a crusher in the area of Al-Hammad that is rich of the black basalt stone, which is considered absolutely the best in the
@@ -663,22 +692,41 @@
                 </div>
               </div>
             </div>
+            <div class="col-lg-3">
+              <div class="our-team-1 hover-animation-1 " style="height: 242px;" >
+                <div class="profile-image scale-in-center">
+                  <img src="assets/images/S4.jpeg" alt=""style="height: 100px; width: 150px;" />
+                </div>
+                <div class="figcaption">
+                  <h4>3/4 AGGREGATE</h4>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="hilite-title text-left p-l50 text-dengar text-pop-up-top">
-        <strong class="text-danger">Crusher Material</strong>
+        <strong >Crusher Material</strong>
       </div>
     </div>
     <div
       class="section-full mobile-page-padding mission-outer-section p-t80 p-b30 bg-gray bg-no-repeat card bg-right-center"
       style="background-image: url(), url(assets/images/background/bg-4.png)">
       <div class="container">
-        <h1>Product List</h1>
+          <div class="section-head">
+      <div class="mt-separator-outer separator-center">
+        <div class="mt-separator">
+          <h2 class="text-danger text-uppercase sep-line-one">
+            <span class="font-weight-300 site-text-primary text-danger">Product </span>
+             List
+          </h2>
+        </div>
+      </div>
+    </div>
         <app-product-card></app-product-card>
       </div>
       <div class="hilite-title text-left p-l50 text-dengar text-pop-up-top">
-        <strong class="text-danger">Blocks</strong>
+        <strong >Blocks</strong>
       </div>
     </div>
     <div
@@ -795,7 +843,7 @@
         </div>
       </div>
       <div class="hilite-title text-left p-l50 text-dengar text-pop-up-top">
-        <strong class="text-danger">Ready Mixed Concrete</strong>
+        <strong >Ready Mixed Concrete</strong>
       </div>
     </div>
     <!-- OUR PROJECT START -->
@@ -814,180 +862,184 @@
         </div>
         <!-- TITLE END -->
 
-        <div class="section-content">
-          <div class="portfolio-wrap row mfp-gallery product-stamp d-flex flex-wrap">
-            <!-- COLUMNS 2 -->
-            <div class="masonry-item cat-2 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/2.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">ALORINI</h4>
-                  <p class="mb-0">Construction of the Charitable a housing project</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
+   <div id="projectCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row">
+        <div class="masonry-item cat-2 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/2.jpeg" class="img-fluid img-box " alt="" />
             </div>
-
-            <!-- COLUMNS 3 -->
-            <div class="masonry-item cat-2 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/21.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">SAPAC</h4>
-                  <p class="mb-0">Sidewalks projects,Tunnels of Turaif and Qurayyat</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">ALORINI</h4>
+              <p class="mb-0">Construction of the Charitable a housing project</p>
             </div>
-
-            <!-- COLUMNS 4 -->
-            <div class="masonry-item cat-6 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/4.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Arabian Civil Works Company</h4>
-                  <p class="mb-0">Building Public Schools</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-2 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/21.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
             </div>
-
-            <!-- COLUMNS 5 -->
-            <div class="masonry-item cat-6 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/3.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Hamed Almdouh Group</h4>
-                  <p class="mb-0">Almdouh Hotel,Municipal Projects</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">SAPAC</h4>
+              <p class="mb-0">Sidewalks projects,Tunnels of Turaif and Qurayyat</p>
             </div>
-
-            <!-- COLUMNS 6 -->
-            <div class="masonry-item cat-3 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/6.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">BABEL</h4>
-                  <p class="mb-0">Building the University of Northern Borders</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-6 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/4.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
             </div>
-
-            <!-- COLUMNS 7 -->
-            <div class="masonry-item cat-3 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/7.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">BINAA ALAJYAL CONSTAUCTION EST</h4>
-                  <p class="mb-0">Building Public Schools</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Arabian Civil Works Company</h4>
+              <p class="mb-0">Building Public Schools</p>
             </div>
-
-            <!-- COLUMNS 8 -->
-            <div class="masonry-item cat-1 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/8.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Al-RASHID TRADING & CONTRACTING</h4>
-                  <p class="mb-0">Building Housing of the Border Patrol/Guards</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
-            </div>
-
-            <!-- COLUMNS 9 -->
-            <div class="masonry-item cat-1 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/9.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Al-Rajhi Development Co.Ltd</h4>
-                  <p class="mb-0">Public School, Technical Institute</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
-            </div>
-
-            <!-- COLUMNS 10 -->
-            <div class="masonry-item cat-1 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/10.jpeg" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Al-Aqili Trading and Contracting EST</h4>
-                  <p class="mb-0">Hotels,Celebrations Galleries</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
-            </div>
-
-            <!-- COLUMNS 11 -->
-            <div class="masonry-item cat-1 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/15.png" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Sinoma</h4>
-                  <p class="mb-0">Building Jouf Cement Company</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
-            </div>
-
-            <!-- COLUMNS 12 -->
-            <div class="masonry-item cat-1 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/20.png" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">Nesma&Partners</h4>
-                  <p class="mb-0">Residential Buildings In North Cement</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
-            </div>
-
-            <!-- COLUMNS 13 -->
-            <div class="masonry-item cat-1 col-lg-3 col-md-6 mb-3 d-flex align-items-stretch">
-              <div class="mt-box image-hover-block w-100">
-                <div class="mt-thum-bx">
-                  <img src="assets/images/13.png" class="img-fluid img-box" alt="" />
-                </div>
-                <div class="mt-info pt-2 text-white">
-                  <h4 class="mt-tilte mb-2 mt-0">LARSEN&TOUBRO</h4>
-                  <p class="mb-0">Building Public Schools</p>
-                </div>
-                <a href="project-detail.html"></a>
-              </div>
-            </div>
+            <a href="project-detail.html"></a>
           </div>
         </div>
       </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row">
+        <div class="masonry-item cat-6 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/3.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Hamed Almdouh Group</h4>
+              <p class="mb-0">Almdouh Hotel,Municipal Projects</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/6.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">BABEL</h4>
+              <p class="mb-0">Building the University of Northern Borders</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-3 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/7.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">BINAA ALAJYAL CONSTAUCTION EST</h4>
+              <p class="mb-0">Building Public Schools</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row">
+        <div class="masonry-item cat-1 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/8.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Al-RASHID TRADING & CONTRACTING</h4>
+              <p class="mb-0">Building Housing of the Border Patrol/Guards</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-1 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/9.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Al-Rajhi Development Co.Ltd</h4>
+              <p class="mb-0">Public School, Technical Institute</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-1 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/10.jpeg" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Al-Aqili Trading and Contracting EST</h4>
+              <p class="mb-0">Hotels,Celebrations Galleries</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row">
+        <div class="masonry-item cat-1 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/15.png" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Sinoma</h4>
+              <p class="mb-0">Building Jouf Cement Company</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-1 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/20.png" class="img-fluid img-box w-500px h-500px" alt="" />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Nesma&Partners</h4>
+              <p class="mb-0">Residential Buildings In North Cement</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+        <div class="masonry-item cat-1 col-lg-4 col-md-6 mb-3 d-flex align-items-stretch">
+          <div class="mt-box image-hover-block w-100">
+            <div class="mt-thum-bx">
+              <img src="assets/images/13.png" class="img-fluid img-box w-500px h-500px" alt=""  />
+            </div>
+            <div class="mt-info pt-2 text-white">
+              <h4 class="mt-tilte mb-2 mt-0">Another Project</h4>
+              <p class="mb-0">Some other details</p>
+            </div>
+            <a href="project-detail.html"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#projectCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#projectCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+      </div>
       <div class="hilite-title text-left p-l50 text-uppercase text-pop-up-top">
-        <strong class="text-danger">Clients</strong>
+        <strong >Clients</strong>
       </div>
     </div>
 
@@ -1116,7 +1168,7 @@
         </div>
       </div>
       <div class="hilite-title text-right p-r50 text-uppercase hilite-dark">
-        <strong class="text-danger">Blog</strong>
+        <strong >Blog</strong>
       </div>
     </div>
     <!-- OUR BLOG END -->
