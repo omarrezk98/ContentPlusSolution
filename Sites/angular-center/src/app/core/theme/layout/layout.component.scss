@@ -1,90 +1,51 @@
-.section {
-  padding: 50px 0;
-  background-color: #f7f7f7;
-
-  .title-wrap {
-    margin-bottom: 40px;
-
-    .h1 {
-      font-size: 2.5rem;
-      color: #333;
-    }
-  }
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card-style4 {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 500px;
-    height: 400px;
-    .service-card-img {
-      img {
-        width: 300px;
-        height: 300px;
-        display: flex;
-      }
-    }
-
-    .service-card-name {
-      font-size: 1.25rem;
-      margin: 15px 0;
-      color: #333;
-      outline: none;
-    }
-
-    .service-card-bg {
-      padding: 20px;
-      background-color: #fafafa;
-
-      p {
-        font-size: 0.875rem;
-        color: #666;
-        margin-bottom: 10px;
-      }
-
-      .btn-plus {
-        font-size: 1.5rem;
-        color: antiquewhite;
-      }
-
-      .service-card-img-num {
-        font-size: 1rem;
-        color: #999;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-      }
-    }
-  }
-}
-.blog-post-style4 img {
+.prd img {
   height: 400px;
+  width: 550px;
 }
-.header {
-  color: #0a0a0a;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+.prd p {
+  font-weight: bold;
 }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+.prd {
+  width: 300px;
+  height: 550px;
+}
+.prd-grid {
+  margin: 20px;
+}
+.container-fluid {
+  height: 600ox;
+  background-color: azure;
+  border-radius: 5px;
+}
+.row ul li {
+  list-style: none;
+}
+.fa-regular {
+  margin-right: 20px;
+}
+.fa-solid {
+  margin-right: 20px;
+}
+.question {
+  background-color: darkcyan;
+  color: rgb(244, 235, 224);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  width: 450px;
+  font-size: large;
+}
+.testimonial {
+  background-color: azure;
+  margin: 30px;
+  width: 800px;
+  img {
+    border-radius: 10px;
+  }
+  p {
+    font-size: large;
+  }
+}
+.col-lg-7 {
+  margin-top: 110px;
 }

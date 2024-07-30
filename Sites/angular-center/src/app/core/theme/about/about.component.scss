@@ -1,8 +1,56 @@
-.header {
-  color: #0a0a0a;
+.bg-full {
+  height: 600px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.col-lg-8 {
+  width: 600px;
+  p {
+    font-size: larger;
+  }
+}
+.section {
+  margin-top: 30px;
+  p {
+    padding: 10px;
+  }
+}
+.testimonial {
+  margin-top: 10px;
+  margin-left: 200px;
+  background-color: azure;
+  width: 700px;
+  font-size: large;
+  margin-bottom: 40px;
+}
+.stats-container {
+  margin: 20px;
   padding: 20px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+  height: 150px;
+  background-color: cadetblue;
+  color: beige;
+  border-radius: 10px;
+  font-size: larger;
+}
+.stat-item {
+  border: solid beige;
+  border-radius: 5px;
+  width: 400px;
+  margin-left: 60px;
+}
+.gallery-item p {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.question {
+  background-color: darkcyan;
+  color: rgb(244, 235, 224);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+  width: 450px;
+  font-size: large;
+}
+.col-lg-7 {
+  margin-top: 110px;
 }
