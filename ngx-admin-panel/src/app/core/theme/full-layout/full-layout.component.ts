@@ -20,8 +20,6 @@ import { GlobalService } from '../../utils/global.service';
   templateUrl: './full-layout.component.html',
 })
 export class FullLayoutComponent implements AfterViewInit {
-  jsLoaded = false;
-
   constructor(
     public global: GlobalService,
     public fixed: FixedService,
@@ -36,18 +34,15 @@ export class FullLayoutComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (!this.jsLoaded) {
-      this.jsLoaded = true;
-      KTUtil.init();
-      KTDrawer.init();
-      KTMenu.init();
-      KTScroll.init();
-      KTSticky.init();
-      KTSwapper.init();
-      KTToggle.init();
-      KTScrolltop.init();
-      KTDialer.init();
-      KTThemeMode.init();
-    }
+    KTUtil.init();
+    KTDrawer.init();
+    KTMenu.init();
+    KTScroll.init();
+    KTSticky.init();
+    KTSwapper.init();
+    KTToggle.init();
+    KTScrolltop.init();
+    KTDialer.init();
+    KTThemeMode.init();
   }
 }
