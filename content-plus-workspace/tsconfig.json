@@ -1,0 +1,47 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "strict": false,//
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,//
+    "noImplicitReturns": false,//
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+
+    "strictPropertyInitialization": false,//
+    "allowSyntheticDefaultImports": true,//
+    "baseUrl": ".",
+    "paths": {
+      // "nucleus": [
+      //   "./dist/nucleus"
+      // ],
+      "nucleus-lib": [
+        "./dist/nucleus-lib"
+      ],
+      "shared-js/*": [
+        "./projects/shared-js/*"
+      ]
+    },
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
